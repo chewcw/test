@@ -49,7 +49,17 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "file_browser" },
+
+  extensions = {
+    file_browser = {
+      theme = "dropdown",
+      hijack_netrw = true,
+      hidden = true,
+      initial_mode = "normal",
+      preview = true,
+    },
+  },
 }
 
 return options

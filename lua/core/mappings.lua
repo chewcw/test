@@ -56,6 +56,13 @@ M.general = {
 		-- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
 		["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "dont copy replaced text", opts = { silent = true } },
 	},
+
+  c = {
+    ["<A-k>"] = { "<Up>", "move up in command mode" },
+    ["<A-j>"] = { "<Down>", "move down in command mode" },
+    ["<A-h>"] = { "<Left>", "move backward in command mode" },
+    ["<A-l>"] = { "<Right>", "move forward in command mode" },
+  },
 }
 
 M.tabufline = {
@@ -63,14 +70,14 @@ M.tabufline = {
 
 	n = {
 		-- cycle through buffers
-		["<tab>"] = {
+		["<A-.>"] = {
 			function()
 				require("nvchad_ui.tabufline").tabuflineNext()
 			end,
 			"goto next buffer",
 		},
 
-		["<S-tab>"] = {
+		["<A-,>"] = {
 			function()
 				require("nvchad_ui.tabufline").tabuflinePrev()
 			end,
@@ -223,23 +230,17 @@ M.nvimtree = {
 	},
 }
 
-M.nerdtree = {
-	plugin = true,
-
-	n = {
-		-- toggle
-		["<C-n>"] = { "<cmd> NERDTreeToggle <CR>", "toggle nerdtree" },
-	},
-}
-
 M.telescope = {
 	plugin = true,
 
 	n = {
+    -- file browser
+		["<leader>fs"] = { "<cmd> Telescope file_browser <CR>", "file browser" },
+
 		-- find
 		["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
 		["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
-		["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
 		["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
 		["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
 		["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
@@ -450,6 +451,37 @@ M.commentary = {
       "Comment"
 		},
 	},
+}
+
+M.easymotion = {
+  plugin = true,
+
+  n = {
+    ["<leader>s"] = {
+      "<Plug>(easymotion-s)",
+      "Easymotion search 1 character"
+    },
+    ["<leader>w"] = {
+      "<Plug>(easymotion-w)",
+      "Easymotion search forward"
+    },
+    ["<leader>b"] = {
+      "<Plug>(easymotion-b)",
+      "Easymotion search backward"
+    },
+    ["<leader>j"] = {
+      "<Plug>(easymotion-j)",
+      "Easymotion search down"
+    },
+    ["<leader>k"] = {
+      "<Plug>(easymotion-k)",
+      "Easymotion search up"
+    },
+    ["<leader>/"] = {
+      "<Plug>(easymotion-sn)",
+      "Easymotion search"
+    },
+ },
 }
 
 return M

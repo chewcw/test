@@ -63,4 +63,9 @@ M.gitsigns = {
   end,
 }
 
+M.webdevicons = {
+  default = true,
+  strict = true,
+}
+
 return M
