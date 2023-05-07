@@ -281,6 +281,14 @@ local default_plugins = {
     end,
   },
 
+  {
+    "jeetsukumaran/vim-markology",
+    event = "VeryLazy",
+    init = function()
+      vim.g.markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    end,
+  },
+
 	-- Only load whichkey after all the gui
 	{
 		"folke/which-key.nvim",
