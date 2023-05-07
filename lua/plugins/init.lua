@@ -5,7 +5,7 @@ local default_plugins = {
   "nvim-lua/plenary.nvim",
 
   -- nvchad plugins
-  { 
+  {
     "NvChad/extensions",
     branch = "v2.0",
   },
@@ -202,29 +202,29 @@ local default_plugins = {
   },
 
   -- file managing , picker etc
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-  --   init = function()
-  --     require("core.utils").load_mappings "nvimtree"
-  --   end,
-  --   opts = function()
-  --     return require "plugins.configs.nvimtree"
-  --   end,
-  --   config = function(_, opts)
-  --     dofile(vim.g.base46_cache .. "nvimtree")
-  --     require("nvim-tree").setup(opts)
-  --     vim.g.nvimtree_side = opts.view.side
-  --   end,
-  -- },
-
   {
-    "preservim/nerdtree",
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     init = function()
-      require("core.utils").load_mappings "nerdtree"
+      require("core.utils").load_mappings "nvimtree"
+    end,
+    opts = function()
+      return require "plugins.configs.nvimtree"
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "nvimtree")
+      require("nvim-tree").setup(opts)
+      vim.g.nvimtree_side = opts.view.side
     end,
   },
 
+  -- {
+  --   "preservim/nerdtree",
+  --   event = "BufEnter",
+  --   init = function()
+  --     require("core.utils").load_mappings "nerdtree"
+  --   end,
+  -- },
 
   {
     "nvim-telescope/telescope.nvim",
@@ -249,7 +249,6 @@ local default_plugins = {
 
   {
     "mhartington/formatter.nvim",
-    lazy = false,
     init = function()
       require("core.utils").load_mappings "formatter"
     end,
@@ -260,12 +259,15 @@ local default_plugins = {
 
   {
     "tpope/vim-surround",
-    lazy = false,
+    event = "BufEnter",
   },
 
   {
     "tpope/vim-commentary",
-    lazy = false,
+    event = "BufEnter",
+    init = function()
+      require("core.utils").load_mappings "commentary"
+    end,
   },
 
   -- Only load whichkey after all the gui

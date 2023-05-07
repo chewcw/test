@@ -36,7 +36,7 @@ local options = {
     highlight_opened_files = "none",
 
     indent_markers = {
-      enable = false,
+      enable = true,
     },
 
     icons = {
@@ -51,22 +51,22 @@ local options = {
         default = "󰈚",
         symlink = "",
         folder = {
-          default = "󰉋",
-          empty = "",
-          empty_open = "",
-          open = "",
-          symlink = "",
-          symlink_open = "",
-          arrow_open = "",
-          arrow_closed = "",
+          default = "📁",
+          empty = "📁",
+          empty_open = "📂",
+          open = "📂",
+          symlink = "🔗",
+          symlink_open = "🔗",
+          arrow_open = "▼",
+          arrow_closed = "▶ ️",
         },
         git = {
-          unstaged = "✗",
-          staged = "✓",
-          unmerged = "",
+          unstaged = "✖",
+          staged = "✔️",
+          unmerged = "",
           renamed = "➜",
           untracked = "★",
-          deleted = "",
+          deleted = "🚫",
           ignored = "◌",
         },
       },

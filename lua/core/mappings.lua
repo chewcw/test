@@ -431,12 +431,23 @@ M.gitsigns = {
 }
 
 M.formatter = {
-  plugin = true,
+	plugin = true,
 
 	n = {
-		["<S-A-f>"] = {
-			":Format <CR>",
-			"format document",
+		["<A-S-f>"] = {
+			"<cmd> Format <CR>",
+			"Format document",
+		},
+	},
+}
+
+M.commentary = {
+	plugin = true,
+
+	n = {
+		["gcc"] = {
+      "<cmd> Commentary <CR>",
+      "Comment"
 		},
 	},
 }
