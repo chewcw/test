@@ -1,3 +1,35 @@
+-- reference https://github.com/nvim-telescope/telescope.nvim/issues/2201#issuecomment-1284691502
+local ts_select_dir_for_grep_or_find_files = function(grep)
+  return function(_)
+    local action_state = require("telescope.actions.state")
+    local fb = require("telescope").extensions.file_browser
+    local grep_or_find_files = require("telescope.builtin").live_grep
+    if not grep then
+      grep_or_find_files = require("telescope.builtin").find_files
+    end
+    local current_line = action_state.get_current_line()
+
+    fb.file_browser({
+      files = false,
+      depth = false,
+      attach_mappings = function(_)
+        require("telescope.actions").select_default:replace(function()
+          local entry_path = action_state.get_selected_entry().Path
+          local dir = entry_path:is_dir() and entry_path or entry_path:parent()
+          local relative = dir:make_relative(vim.fn.getcwd())
+          local absolute = dir:absolute()
+          grep_or_find_files({
+            results_title = relative .. "/",
+            cwd = absolute,
+            default_text = current_line,
+          })
+        end)
+        return true
+      end,
+    })
+  end
+end
+
 local options = {
 	defaults = {
 		vimgrep_arguments = {
@@ -85,6 +117,29 @@ local options = {
       },
 		},
 	},
+
+  pickers = {
+    live_grep = {
+      mappings = {
+        i = {
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+        },
+        n = {
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+        },
+      },
+    },
+    find_files = {
+      mappings = {
+        i = {
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
+        },
+        n = {
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
+        },
+      },
+    },
+  },
 }
 
 return options
