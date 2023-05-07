@@ -52,6 +52,12 @@ M.general = {
 
     -- macro
     ["-"] = { "@@", "repeat macro" },
+
+    -- tab
+    ["<C-t>"] = { ":tabedit <CR>", "new tab" },
+    ["<C-w>"] = { ":tabclose <CR>", "close tab" },
+    ["<leader>,"] = { ":tabprevious <CR>", "previous tab" },
+    ["<leader>."] = { ":tabnext <CR>", "next tab" },
   },
 
   t = {
