@@ -68,4 +68,12 @@ M.webdevicons = {
   strict = true,
 }
 
+M.wilder = {
+  modes = { ":", "/", "?" },
+  next_key = "<C-j>",
+  previous_key = "<C-k>",
+  accept_key = "<C-l>",
+  reject_key = "<C-h>",
+}
+
 return M

@@ -238,10 +238,10 @@ local default_plugins = {
 		end,
 	},
 
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-  },
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	},
 
 	{
 		"mhartington/formatter.nvim",
@@ -274,6 +274,28 @@ local default_plugins = {
 			require("core.utils").load_mappings("easymotion")
 		end,
 	},
+
+  {
+    "gelguy/wilder.nvim",
+    event = "BufEnter",
+    opts = function()
+      return require("plugins.configs.others").wilder
+    end,
+    init = function()
+      local wilder = require("wilder")
+      wilder.set_option("renderer", wilder.popupmenu_renderer(
+        wilder.popupmenu_border_theme({
+          highlights = {
+            border = "Normal",
+          },
+          border = "single",
+        })
+      ))
+    end,
+    config = function(_, opts)
+      require("wilder").setup(opts)
+    end,
+  },
 
 	-- Only load whichkey after all the gui
 	{
