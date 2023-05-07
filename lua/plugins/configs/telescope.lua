@@ -47,16 +47,25 @@ local options = {
 		mappings = {
 			n = {
         ["q"] = require("telescope.actions").close,
+        ["t"] = require("telescope").extensions.file_browser.actions.change_cwd,
         ["n"] = require("telescope").extensions.file_browser.actions.create,
         ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
-        ["l"] = require("telescope").extensions.file_browser.actions.open,
         ["y"] = require("telescope").extensions.file_browser.actions.copy,
         ["x"] = require("telescope").extensions.file_browser.actions.remove,
         ["m"] = require("telescope").extensions.file_browser.actions.move,
         ["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
         ["i"] = function()
           vim.cmd('startinsert')
-        end
+        end,
+        ["/"] = function()
+          vim.cmd('startinsert')
+        end,
+      },
+      i = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
       },
 		},
 	},

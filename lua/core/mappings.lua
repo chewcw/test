@@ -38,6 +38,21 @@ M.general = {
 		-- new buffer
 		["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
 		["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
+
+    -- marks
+    ["<leader>m"] = { ":delmarks a-zA-Z0-9\"^.[] <CR>", "delete all marks" },
+
+    -- split
+    ["<C-\\>"] = { ":vsplit <CR>", "split vertically" },
+    ["<C-_>"] = { ":split <CR>", "split horizontally" },
+    ["<A-=>"] = { ":resize +5 <CR>", "resize horizontally" },
+    ["<A-->"] = { ":resize -5 <CR>", "resize horizontally" },
+    ["<A-]>"] = { ":vertical resize +5 <CR>", "resize vertically" },
+    ["<A-[>"] = { ":vertical resize -5 <CR>", "resize vertically" },
+    -- nnoremap <A-=> :resize +5<CR>
+    -- nnoremap <A--> :resize -5<CR>
+    -- nnoremap <A-]> :vertical resize +5<CR>
+    -- nnoremap <A-[> :vertical resize -5<CR>
 	},
 
 	t = {
@@ -461,25 +476,9 @@ M.easymotion = {
       "<Plug>(easymotion-s)",
       "Easymotion search 1 character"
     },
-    ["<leader>w"] = {
-      "<Plug>(easymotion-w)",
-      "Easymotion search forward"
-    },
-    ["<leader>b"] = {
-      "<Plug>(easymotion-b)",
-      "Easymotion search backward"
-    },
-    ["<leader>j"] = {
-      "<Plug>(easymotion-j)",
-      "Easymotion search down"
-    },
-    ["<leader>k"] = {
-      "<Plug>(easymotion-k)",
-      "Easymotion search up"
-    },
-    ["<leader>/"] = {
-      "<Plug>(easymotion-sn)",
-      "Easymotion search"
+    ["<leader>S"] = {
+      "<Plug>(easymotion-s2)",
+      "Easymotion search 2 character"
     },
  },
 }
