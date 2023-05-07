@@ -44,42 +44,45 @@ local options = {
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-		mappings = {
-			n = {
-        ["q"] = require("telescope.actions").close,
-        ["t"] = require("telescope").extensions.file_browser.actions.change_cwd,
-        ["n"] = require("telescope").extensions.file_browser.actions.create,
-        ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
-        ["y"] = require("telescope").extensions.file_browser.actions.copy,
-        ["x"] = require("telescope").extensions.file_browser.actions.remove,
-        ["m"] = require("telescope").extensions.file_browser.actions.move,
-        ["r"] = require("telescope").extensions.file_browser.actions.rename,
-        ["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
-        ["<C-j>"] = require("telescope.actions").move_selection_next,
-        ["<C-k>"] = require("telescope.actions").move_selection_previous,
-        ["i"] = function()
-          vim.cmd('startinsert')
-        end,
-        ["/"] = function()
-          vim.cmd('startinsert')
-        end,
-      },
-      i = {
-        ["<C-j>"] = require("telescope.actions").move_selection_next,
-        ["<C-k>"] = require("telescope.actions").move_selection_previous,
-      },
-		},
 	},
 
 	extensions_list = { "themes", "terms", "file_browser", "workspaces" },
 
 	extensions = {
 		file_browser = {
+      path = '%:p:h',
+      cwd = vim.fn.expand('%:p:h'),
 			theme = "dropdown",
 			hijack_netrw = true,
 			hidden = true,
 			initial_mode = "normal",
 			preview = true,
+      mappings = {
+        n = {
+          ["q"] = require("telescope.actions").close,
+          ["t"] = require("telescope").extensions.file_browser.actions.change_cwd,
+          ["T"] = require("telescope").extensions.file_browser.actions.goto_cwd,
+          ["n"] = require("telescope").extensions.file_browser.actions.create,
+          ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
+          ["y"] = require("telescope").extensions.file_browser.actions.copy,
+          ["x"] = require("telescope").extensions.file_browser.actions.remove,
+          ["m"] = require("telescope").extensions.file_browser.actions.move,
+          ["r"] = require("telescope").extensions.file_browser.actions.rename,
+          ["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
+          ["<C-j>"] = require("telescope.actions").move_selection_next,
+          ["<C-k>"] = require("telescope.actions").move_selection_previous,
+          ["i"] = function()
+            vim.cmd('startinsert')
+          end,
+          ["/"] = function()
+            vim.cmd('startinsert')
+          end,
+        },
+        i = {
+          ["<C-j>"] = require("telescope.actions").move_selection_next,
+          ["<C-k>"] = require("telescope.actions").move_selection_previous,
+        },
+      },
 		},
 	},
 }
