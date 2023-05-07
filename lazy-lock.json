@@ -30,5 +30,6 @@
   "vim-markology": { "branch": "master", "commit": "9681b3f7a34b9fd62ac6706d05c0b63833c5a0ed" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "which-key.nvim": { "branch": "main", "commit": "af8f26bfbb61b5f722c9fbc72b296dc9db0bcfdc" },
-  "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" }
+  "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" },
+  "workspaces.nvim": { "branch": "master", "commit": "d1ccebe224037cd955de844b8500d21e175728e9" }
 }

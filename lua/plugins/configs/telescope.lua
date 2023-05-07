@@ -53,6 +53,7 @@ local options = {
         ["y"] = require("telescope").extensions.file_browser.actions.copy,
         ["x"] = require("telescope").extensions.file_browser.actions.remove,
         ["m"] = require("telescope").extensions.file_browser.actions.move,
+        ["r"] = require("telescope").extensions.file_browser.actions.rename,
         ["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
         ["<C-j>"] = require("telescope.actions").move_selection_next,
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
@@ -70,7 +71,7 @@ local options = {
 		},
 	},
 
-	extensions_list = { "themes", "terms", "file_browser" },
+	extensions_list = { "themes", "terms", "file_browser", "workspaces" },
 
 	extensions = {
 		file_browser = {
