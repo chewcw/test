@@ -1,6 +1,31 @@
 local options = {
   ensure_installed = {
+    -- lua stuff
     "lua-language-server",
+    "stylua",
+
+    -- web dev
+    "css-lsp",
+    "html-lsp",
+    "typescript-language-server",
+    "prettier",
+
+    -- golang 
+    "gopls",
+
+    -- dotnet
+    "omnisharp",
+
+    -- python
+    "autopep8",
+
+    --json
+    "json-lsp",
+    "jsonlint",
+
+    -- yaml
+    "yaml-language-server",
+    "yamlfmt",
   }, -- not an option from mason.nvim
 
   PATH = "skip",

@@ -82,8 +82,8 @@ local options = {
 
 	extensions = {
 		file_browser = {
-      -- path = '%:p:h',
-      -- cwd = vim.fn.expand('%:p:h'),
+      path = '%:p:h',
+      cwd = vim.fn.expand('%:p:h'),
 			theme = "dropdown",
 			hijack_netrw = true,
 			hidden = true,

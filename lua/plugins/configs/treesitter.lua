@@ -2,6 +2,17 @@ local options = {
   ensure_installed = {
     "lua",
     "vim",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "jsx",
+    "tsx",
+    "markdown",
+    "markdown_inline",
+    "go",
+    "c_sharp",
+    "python",
   },
 
   highlight = {
