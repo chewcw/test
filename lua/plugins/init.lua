@@ -288,11 +288,6 @@ local default_plugins = {
     end,
   },
 
-  {
-    "natecraddock/workspaces.nvim",
-    event = "VeryLazy",
-  },
-
 	-- Only load whichkey after all the gui
 	{
 		"folke/which-key.nvim",

@@ -9,9 +9,11 @@ M.treesitter = {
 		"javascript",
 		"typescript",
 		"tsx",
-		"c",
 		"markdown",
 		"markdown_inline",
+    "go",
+    "c_sharp",
+    "python",
 	},
 	indent = {
 		enable = true,
@@ -27,16 +29,28 @@ M.mason = {
 		"lua-language-server",
 		"stylua",
 
-		-- web dev stuff
+		-- web dev
 		"css-lsp",
 		"html-lsp",
 		"typescript-language-server",
-		"deno",
 		"prettier",
 
-		-- c/cpp stuff
-		"clangd",
-		"clang-format",
+    -- golang
+    "gopls",
+
+    -- csharp
+    "omnisharp",
+
+    -- python 
+    "autopep8",
+
+    -- json
+    "json-lsp",
+    "jsonlint",
+
+    -- yaml
+    "yaml-language-server",
+    "yamlfmt",
 	},
 }
 

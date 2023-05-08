@@ -78,12 +78,12 @@ local options = {
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 	},
 
-	extensions_list = { "themes", "terms", "file_browser", "workspaces" },
+	extensions_list = { "themes", "terms", "file_browser" },
 
 	extensions = {
 		file_browser = {
-      path = '%:p:h',
-      cwd = vim.fn.expand('%:p:h'),
+      -- path = '%:p:h',
+      -- cwd = vim.fn.expand('%:p:h'),
 			theme = "dropdown",
 			hijack_netrw = true,
 			hidden = true,
