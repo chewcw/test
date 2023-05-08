@@ -58,6 +58,9 @@ M.general = {
     ["<C-w>"] = { ":tabclose <CR>", "close tab" },
     ["<leader>,"] = { ":tabprevious <CR>", "previous tab" },
     ["<leader>."] = { ":tabnext <CR>", "next tab" },
+
+    -- link
+    ["gx"] = { ":execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "open link" },
   },
 
   t = {
@@ -105,7 +108,7 @@ M.tabufline = {
     },
 
     -- close buffer + hide terminal buffer
-    ["<A-x>"] = {
+    ["<A-w>"] = {
       function()
         require("nvchad_ui.tabufline").close_buffer()
       end,

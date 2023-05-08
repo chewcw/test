@@ -65,14 +65,10 @@ lspconfig.lua_ls.setup({
 -- setup lsp servers
 local servers = { "omnisharp" }
 for _, lsp_server in ipairs(servers) do
-	lspconfig[lsp_server].setup({
-		on_attach = M.on_attach,
-		capabilities = M.capabilities,
-	})
+  local server_config = require("plugins.configs.lspconfig." .. lsp_server)
+  lspconfig[lsp_server].setup(
+    server_config(M.on_attach, M.capabilities)
+  )
 end
-
-lspconfig.omnisharp.setup({
-	require("plugins.configs.lsp.omnisharp"),
-})
 
 return M
