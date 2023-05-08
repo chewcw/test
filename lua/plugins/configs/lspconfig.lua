@@ -63,7 +63,7 @@ lspconfig.lua_ls.setup({
 })
 
 -- setup lsp servers
-local servers = { "omnisharp", "gopls"}
+local servers = { "omnisharp", "gopls", "tsserver" }
 for _, lsp_server in ipairs(servers) do
   local server_config = require("plugins.configs.lspconfig." .. lsp_server)
   lspconfig[lsp_server].setup(
