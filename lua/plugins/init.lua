@@ -299,6 +299,11 @@ local default_plugins = {
 		end,
 	},
 
+  {
+    "Exafunction/codeium.vim",
+    lazy = false,
+  },
+
 	-- Only load whichkey after all the gui
 	{
 		"folke/which-key.nvim",
