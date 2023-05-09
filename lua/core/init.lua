@@ -61,6 +61,9 @@ opt.showmatch = true
 opt.breakindent = true
 opt.completeopt = "menuone,noselect"
 
+-- vertical line
+opt.colorcolumn = "80"
+
 -- wrap
 vim.wo.wrap = false
 

@@ -64,7 +64,7 @@ M.general = {
   },
 
   t = {
-    ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "escape terminal mode" },
+    ["<Esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "escape terminal mode" },
   },
 
   v = {
@@ -269,84 +269,13 @@ M.telescope = {
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "find in current buffer" },
     ["<leader>f*"] = { "<cmd> Telescope grep_string <CR>", "search for string under cursor in cwd" },
-    ["<leader>ft"] = { "<cmd> Telescope terms", "open terms" },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
 
-    -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
-
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
-  },
-}
-
-M.nvterm = {
-  plugin = true,
-
-  t = {
-    -- toggle in terminal mode
-    ["<A-,>"] = {
-      function()
-        require("nvterm.terminal").toggle("float")
-      end,
-      "toggle floating term",
-    },
-
-    ["<A-.>"] = {
-      function()
-        require("nvterm.terminal").toggle("horizontal")
-      end,
-      "toggle horizontal term",
-    },
-
-    ["<A-/>"] = {
-      function()
-        require("nvterm.terminal").toggle("vertical")
-      end,
-      "toggle vertical term",
-    },
-  },
-
-  n = {
-    -- toggle in normal mode
-    ["<A-,>"] = {
-      function()
-        require("nvterm.terminal").toggle("float")
-      end,
-      "toggle floating term",
-    },
-
-    ["<A-.>"] = {
-      function()
-        require("nvterm.terminal").toggle("horizontal")
-      end,
-      "toggle horizontal term",
-    },
-
-    ["<A-/>"] = {
-      function()
-        require("nvterm.terminal").toggle("vertical")
-      end,
-      "toggle vertical term",
-    },
-
-    -- new
-    ["g."] = {
-      function()
-        require("nvterm.terminal").new("horizontal")
-      end,
-      "new horizontal term",
-    },
-
-    ["g/"] = {
-      function()
-        require("nvterm.terminal").new("vertical")
-      end,
-      "new vertical term",
-    },
   },
 }
 
@@ -490,6 +419,22 @@ M.easymotion = {
       "<Plug>(easymotion-s2)",
       "Easymotion search 2 character",
     },
+  },
+}
+
+M.toggleterm = {
+  plugin = true,
+
+  n = {
+    ["<A-,>"] = { ":ToggleTerm direction=float <CR>", "toggle term in float mode" },
+    ["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+    ["<A-/>"] = { ":ToggleTerm direction=vertical <CR>", "toggle term in vertical mode" },
+  },
+
+  t = {
+    ["<A-,>"] = { ":ToggleTerm direction=float <CR>", "toggle term in float mode" },
+    ["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+    ["<A-/>"] = { ":ToggleTerm direction=vertical <CR>", "toggle term in vertical mode" },
   },
 }
 
