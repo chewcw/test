@@ -301,7 +301,20 @@ local default_plugins = {
 
   {
     "Exafunction/codeium.vim",
-    lazy = false,
+     cmd = "Codeium",
+    init = function()
+      require("core.utils").load_mappings("codeium")
+    end,
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    event = "BufEnter",
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 
 	-- Only load whichkey after all the gui
