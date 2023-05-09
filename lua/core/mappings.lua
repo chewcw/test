@@ -56,8 +56,8 @@ M.general = {
     -- tab
     ["<A-S-t>"] = { ":tabedit <CR>", "new tab" },
     ["<A-S-w>"] = { ":tabclose <CR>", "close tab" },
-    ["A-S-h"] = { ":tabprevious <CR>", "previous tab" },
-    ["A-S-l"] = { ":tabnext <CR>", "next tab" },
+    ["<A-S-h>"] = { ":tabprevious <CR>", "previous tab" },
+    ["<A-S-l>"] = { ":tabnext <CR>", "next tab" },
 
     -- link
     ["gx"] = { ":execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "open link" },
@@ -276,6 +276,9 @@ M.telescope = {
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+
+    -- terminal switcher
+    ["<leader>tt"] = { "<cmd> TermSelect <CR>", "select terminal" },
   },
 }
 
@@ -429,12 +432,14 @@ M.toggleterm = {
     ["<A-,>"] = { ":ToggleTerm direction=float <CR>", "toggle term in float mode" },
     ["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
     ["<A-/>"] = { ":ToggleTerm direction=vertical <CR>", "toggle term in vertical mode" },
+    ["<A-m>"] = { ":ToggleTerm direction=tab <CR>", "toggle term in tab mode" },
   },
 
   t = {
     ["<A-,>"] = { ":ToggleTerm direction=float <CR>", "toggle term in float mode" },
     ["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
     ["<A-/>"] = { ":ToggleTerm direction=vertical <CR>", "toggle term in vertical mode" },
+    ["<A-m>"] = { ":ToggleTerm direction=tab <CR>", "toggle term in tab mode" },
   },
 }
 
