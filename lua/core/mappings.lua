@@ -269,6 +269,7 @@ M.telescope = {
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "find in current buffer" },
     ["<leader>f*"] = { "<cmd> Telescope grep_string <CR>", "search for string under cursor in cwd" },
+    ["<leader>ft"] = { "<cmd> Telescope terms", "open terms" },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
@@ -287,21 +288,21 @@ M.nvterm = {
 
   t = {
     -- toggle in terminal mode
-    ["<A-i>"] = {
+    ["<A-,>"] = {
       function()
         require("nvterm.terminal").toggle("float")
       end,
       "toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<A-.>"] = {
       function()
         require("nvterm.terminal").toggle("horizontal")
       end,
       "toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<A-/>"] = {
       function()
         require("nvterm.terminal").toggle("vertical")
       end,
@@ -311,21 +312,21 @@ M.nvterm = {
 
   n = {
     -- toggle in normal mode
-    ["<A-i>"] = {
+    ["<A-,>"] = {
       function()
         require("nvterm.terminal").toggle("float")
       end,
       "toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<A-.>"] = {
       function()
         require("nvterm.terminal").toggle("horizontal")
       end,
       "toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<A-/>"] = {
       function()
         require("nvterm.terminal").toggle("vertical")
       end,
@@ -333,14 +334,14 @@ M.nvterm = {
     },
 
     -- new
-    ["<leader>h"] = {
+    ["g."] = {
       function()
         require("nvterm.terminal").new("horizontal")
       end,
       "new horizontal term",
     },
 
-    ["<leader>v"] = {
+    ["g/"] = {
       function()
         require("nvterm.terminal").new("vertical")
       end,
