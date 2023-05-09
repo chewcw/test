@@ -18,6 +18,7 @@ local options = {
 
     -- python
     "autopep8",
+    "pyright",
 
     --json
     "json-lsp",
