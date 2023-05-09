@@ -43,8 +43,8 @@ M.general = {
     ["<leader>m"] = { ':delmarks a-zA-Z0-9"^.[] <CR>', "delete all marks" },
 
     -- split
-    ["<C-\\>"] = { ":vsplit <CR>", "split vertically" },
-    ["<C-_>"] = { ":split <CR>", "split horizontally" },
+    ["<A-\\>"] = { ":vsplit <CR>", "split vertically" },
+    ["<A-_>"] = { ":split <CR>", "split horizontally" },
     ["<A-=>"] = { ":resize +5 <CR>", "resize horizontally" },
     ["<A-->"] = { ":resize -5 <CR>", "resize horizontally" },
     ["<A-]>"] = { ":vertical resize +5 <CR>", "resize vertically" },
@@ -54,10 +54,10 @@ M.general = {
     ["-"] = { "@@", "repeat macro" },
 
     -- tab
-    ["<C-t>"] = { ":tabedit <CR>", "new tab" },
-    ["<C-w>"] = { ":tabclose <CR>", "close tab" },
-    ["<leader>,"] = { ":tabprevious <CR>", "previous tab" },
-    ["<leader>."] = { ":tabnext <CR>", "next tab" },
+    ["<A-S-t>"] = { ":tabedit <CR>", "new tab" },
+    ["<A-S-w>"] = { ":tabclose <CR>", "close tab" },
+    ["A-S-h"] = { ":tabprevious <CR>", "previous tab" },
+    ["A-S-l"] = { ":tabnext <CR>", "next tab" },
 
     -- link
     ["gx"] = { ":execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "open link" },
@@ -93,14 +93,14 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<A-.>"] = {
+    ["<A-l>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflineNext()
       end,
       "goto next buffer",
     },
 
-    ["<A-,>"] = {
+    ["<A-h>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflinePrev()
       end,
