@@ -1,33 +1,33 @@
 -- reference https://github.com/nvim-telescope/telescope.nvim/issues/2201#issuecomment-1284691502
 local ts_select_dir_for_grep_or_find_files = function(grep)
-  return function(_)
-    local action_state = require("telescope.actions.state")
-    local fb = require("telescope").extensions.file_browser
-    local grep_or_find_files = require("telescope.builtin").live_grep
-    if not grep then
-      grep_or_find_files = require("telescope.builtin").find_files
-    end
-    local current_line = action_state.get_current_line()
+	return function(_)
+		local action_state = require("telescope.actions.state")
+		local fb = require("telescope").extensions.file_browser
+		local grep_or_find_files = require("telescope.builtin").live_grep
+		if not grep then
+			grep_or_find_files = require("telescope.builtin").find_files
+		end
+		local current_line = action_state.get_current_line()
 
-    fb.file_browser({
-      files = false,
-      depth = false,
-      attach_mappings = function(_)
-        require("telescope.actions").select_default:replace(function()
-          local entry_path = action_state.get_selected_entry().Path
-          local dir = entry_path:is_dir() and entry_path or entry_path:parent()
-          local relative = dir:make_relative(vim.fn.getcwd())
-          local absolute = dir:absolute()
-          grep_or_find_files({
-            results_title = relative .. "/",
-            cwd = absolute,
-            default_text = current_line,
-          })
-        end)
-        return true
-      end,
-    })
-  end
+		fb.file_browser({
+			files = false,
+			depth = false,
+			attach_mappings = function(_)
+				require("telescope.actions").select_default:replace(function()
+					local entry_path = action_state.get_selected_entry().Path
+					local dir = entry_path:is_dir() and entry_path or entry_path:parent()
+					local relative = dir:make_relative(vim.fn.getcwd())
+					local absolute = dir:absolute()
+					grep_or_find_files({
+						results_title = relative .. "/",
+						cwd = absolute,
+						default_text = current_line,
+					})
+				end)
+				return true
+			end,
+		})
+	end
 end
 
 local options = {
@@ -82,64 +82,86 @@ local options = {
 
 	extensions = {
 		file_browser = {
-      path = '%:p:h',
-      cwd = vim.fn.expand('%:p:h'),
+			path = "%:p:h",
+			cwd = vim.fn.expand("%:p:h"),
 			theme = "dropdown",
 			hijack_netrw = true,
 			hidden = true,
 			initial_mode = "normal",
 			preview = true,
-      mappings = {
-        n = {
-          ["q"] = require("telescope.actions").close,
-          ["t"] = require("telescope").extensions.file_browser.actions.change_cwd,
-          ["T"] = require("telescope").extensions.file_browser.actions.goto_cwd,
-          ["n"] = require("telescope").extensions.file_browser.actions.create,
-          ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
-          ["y"] = require("telescope").extensions.file_browser.actions.copy,
-          ["x"] = require("telescope").extensions.file_browser.actions.remove,
-          ["m"] = require("telescope").extensions.file_browser.actions.move,
-          ["r"] = require("telescope").extensions.file_browser.actions.rename,
-          ["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
-          ["<C-j>"] = require("telescope.actions").move_selection_next,
-          ["<C-k>"] = require("telescope.actions").move_selection_previous,
-          ["i"] = function()
-            vim.cmd('startinsert')
-          end,
-          ["/"] = function()
-            vim.cmd('startinsert')
-          end,
-        },
-        i = {
-          ["<C-j>"] = require("telescope.actions").move_selection_next,
-          ["<C-k>"] = require("telescope.actions").move_selection_previous,
-        },
-      },
+			mappings = {
+				n = {
+					["q"] = require("telescope.actions").close,
+					["t"] = require("telescope").extensions.file_browser.actions.change_cwd,
+					["T"] = require("telescope").extensions.file_browser.actions.goto_cwd,
+					["n"] = require("telescope").extensions.file_browser.actions.create_from_prompt,
+					["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
+					["y"] = require("telescope").extensions.file_browser.actions.copy,
+					["x"] = require("telescope").extensions.file_browser.actions.remove,
+					["m"] = require("telescope").extensions.file_browser.actions.move,
+					["r"] = require("telescope").extensions.file_browser.actions.rename,
+					["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
+					["<C-j>"] = require("telescope.actions").move_selection_next,
+					["<C-k>"] = require("telescope.actions").move_selection_previous,
+					["<C-\\>"] = require("telescope.actions").select_vertical,
+					["<C-_>"] = require("telescope.actions").select_horizontal,
+					["i"] = function()
+						vim.cmd("startinsert")
+					end,
+					["/"] = function()
+						vim.cmd("startinsert")
+					end,
+				},
+				i = {
+					["<C-j>"] = require("telescope.actions").move_selection_next,
+					["<C-k>"] = require("telescope.actions").move_selection_previous,
+				},
+			},
 		},
 	},
 
-  pickers = {
-    live_grep = {
+	pickers = {
+		live_grep = {
+			mappings = {
+				i = {
+					["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+				},
+				n = {
+					["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+					["<C-\\>"] = require("telescope.actions").select_vertical,
+					["<C-_>"] = require("telescope.actions").select_horizontal,
+				},
+			},
+		},
+		oldfiles = {
       mappings = {
-        i = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
-        },
         n = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+					["<C-\\>"] = require("telescope.actions").select_vertical,
+					["<C-_>"] = require("telescope.actions").select_horizontal,
         },
       },
-    },
-    find_files = {
-      mappings = {
-        i = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
-        },
-        n = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
-        },
-      },
-    },
-  },
+		},
+		find_files = {
+			mappings = {
+				i = {
+					["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
+				},
+				n = {
+					["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
+					["<C-\\>"] = require("telescope.actions").select_vertical,
+					["<C-_>"] = require("telescope.actions").select_horizontal,
+				},
+			},
+		},
+		buffers = {
+			mappings = {
+				n = {
+					["<C-\\>"] = require("telescope.actions").select_vertical,
+					["<C-_>"] = require("telescope.actions").select_horizontal,
+				},
+			},
+		},
+	},
 }
 
 return options
