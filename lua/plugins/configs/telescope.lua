@@ -78,7 +78,7 @@ local options = {
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 	},
 
-	extensions_list = { "themes", "file_browser" },
+	extensions_list = { "themes", "file_browser", "workspaces" },
 
 	extensions = {
 		file_browser = {
@@ -134,12 +134,12 @@ local options = {
 			},
 		},
 		oldfiles = {
-      mappings = {
-        n = {
+			mappings = {
+				n = {
 					["<C-\\>"] = require("telescope.actions").select_vertical,
 					["<C-_>"] = require("telescope.actions").select_horizontal,
-        },
-      },
+				},
+			},
 		},
 		find_files = {
 			mappings = {

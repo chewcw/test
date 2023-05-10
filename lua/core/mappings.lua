@@ -221,26 +221,26 @@ M.lspconfig = {
 			"lsp formatting",
 		},
 
-		["<leader>wa"] = {
-			function()
-				vim.lsp.buf.add_workspace_folder()
-			end,
-			"add workspace folder",
-		},
+		-- ["<leader>wa"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.add_workspace_folder()
+		-- 	end,
+		-- 	"add workspace folder",
+		-- },
 
-		["<leader>wr"] = {
-			function()
-				vim.lsp.buf.remove_workspace_folder()
-			end,
-			"remove workspace folder",
-		},
+		-- ["<leader>wr"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.remove_workspace_folder()
+		-- 	end,
+		-- 	"remove workspace folder",
+		-- },
 
-		["<leader>wl"] = {
-			function()
-				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-			end,
-			"list workspace folders",
-		},
+		-- ["<leader>wl"] = {
+		-- 	function()
+		-- 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		-- 	end,
+		-- 	"list workspace folders",
+		-- },
 	},
 }
 
@@ -279,6 +279,9 @@ M.telescope = {
 
 		-- terminal switcher
 		["<leader>tt"] = { "<cmd> TermSelect <CR>", "select terminal" },
+
+    -- workspaces
+    ["<leader>wl"] = { "<cmd> Telescope workspaces <CR>", "list workspaces" },
 	},
 }
 
@@ -429,17 +432,11 @@ M.toggleterm = {
 	plugin = true,
 
 	n = {
-		["<A-,>"] = { ":ToggleTerm direction=float <CR>", "toggle term in float mode" },
 		["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
-		["<A-/>"] = { ":ToggleTerm direction=vertical <CR>", "toggle term in vertical mode" },
-		["<A-m>"] = { ":ToggleTerm direction=tab <CR>", "toggle term in tab mode" },
 	},
 
 	t = {
-		["<A-,>"] = { ":ToggleTerm direction=float <CR>", "toggle term in float mode" },
 		["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
-		["<A-/>"] = { ":ToggleTerm direction=vertical <CR>", "toggle term in vertical mode" },
-		["<A-m>"] = { ":ToggleTerm direction=tab <CR>", "toggle term in tab mode" },
 	},
 }
 

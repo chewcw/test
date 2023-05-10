@@ -299,23 +299,38 @@ local default_plugins = {
 		end,
 	},
 
-  {
-    "Exafunction/codeium.vim",
-     cmd = "Codeium",
-    init = function()
-      require("core.utils").load_mappings("codeium")
-    end,
-  },
+	{
+		"Exafunction/codeium.vim",
+		cmd = "Codeium",
+		init = function()
+			require("core.utils").load_mappings("codeium")
+		end,
+	},
 
-  {
-    "stevearc/aerial.nvim",
-    event = "BufEnter",
-    opts = {},
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
+	{
+		"stevearc/aerial.nvim",
+		event = "BufEnter",
+		opts = {},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+
+	-- {
+	--   "puremourning/vimspector",
+	--   lazy = false,
+	--   config = true,
+	-- },
+
+	{
+		"natecraddock/workspaces.nvim",
+		event = "BufEnter",
+		config = true,
+		opts = function()
+			return require("plugins.configs.others").workspaces
+		end,
+	},
 
 	-- Only load whichkey after all the gui
 	{

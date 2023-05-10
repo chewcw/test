@@ -10,6 +10,8 @@ local options = {
   insert_mappings = true,
   terminal_mappings = true,
   hide_numbers = false,
+  autochdir = true,
+  shell = "/usr/bin/zsh",
   float_opts = {
     border = "double",
   },

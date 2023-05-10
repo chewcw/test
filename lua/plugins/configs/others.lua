@@ -76,4 +76,11 @@ M.wilder = {
   reject_key = "<C-h>",
 }
 
+M.workspaces = {
+  hooks = {
+    open = "Telescope find_files",
+  },
+  cd_type = "local",
+}
+
 return M
