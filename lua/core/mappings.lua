@@ -5,10 +5,10 @@ local M = {}
 M.general = {
 	i = {
 		-- navigate within insert mode
-		["<C-h>"] = { "<Left>", "move left" },
-		["<C-l>"] = { "<Right>", "move right" },
-		["<C-j>"] = { "<Down>", "move down" },
-		["<C-k>"] = { "<Up>", "move up" },
+		["<A-h>"] = { "<Left>", "move left" },
+		["<A-l>"] = { "<Right>", "move right" },
+		["<A-j>"] = { "<Down>", "move down" },
+		["<A-k>"] = { "<Up>", "move up" },
 	},
 
 	n = {
@@ -122,12 +122,12 @@ M.lspconfig = {
 	-- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
 	n = {
-		["gD"] = {
-			function()
-				vim.lsp.buf.declaration()
-			end,
-			"lsp declaration",
-		},
+		-- ["gD"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.declaration()
+		-- 	end,
+		-- 	"lsp declaration",
+		-- },
 
 		-- ["gd"] = {
 		-- 	function()
@@ -284,8 +284,11 @@ M.telescope = {
 
 		-- lsp
 		["gi"] = { "<cmd> Telescope lsp_implementations show_line=false <CR>", "lsp implementation" },
+		["gI"] = { "<cmd> Telescope lsp_implementations show_line=false jump_type=vsplit <CR>", "lsp implementation" },
 		["gr"] = { "<cmd> Telescope lsp_references show_line=false <CR>", "lsp references" },
+		["gR"] = { "<cmd> Telescope lsp_references show_line=false jump_type=vsplit <CR>", "lsp references" },
 		["gd"] = { "<cmd> Telescope lsp_definitions show_line=false <CR>", "lsp definitions" },
+		["gD"] = { "<cmd> Telescope lsp_definitions show_line=false jump_type=vsplit <CR>", "lsp definitions" },
 		["<leader>fds"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
 		["<leader>fD"] = { "<cmd> Telescope lsp_type_definitions show_line=false <CR>", "lsp type definitions" },
 

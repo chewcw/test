@@ -48,7 +48,7 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
--- opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append "<>[]hl"
 
 -- https://stackoverflow.com/questions/2288756/how-to-set-working-current-directory-in-vim
 opt.autochdir = true
