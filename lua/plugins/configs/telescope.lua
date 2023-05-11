@@ -131,6 +131,9 @@ local options = {
 					["T"] = require("telescope").extensions.file_browser.actions.goto_cwd,
 					["n"] = require("telescope").extensions.file_browser.actions.create_from_prompt,
 					["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
+					["l"] = function()
+            vim.fn.feedkeys("\r")
+          end,
 					["y"] = require("telescope").extensions.file_browser.actions.copy,
 					["x"] = require("telescope").extensions.file_browser.actions.remove,
 					["m"] = require("telescope").extensions.file_browser.actions.move,
