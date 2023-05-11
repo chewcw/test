@@ -82,14 +82,14 @@ local options = {
 			i = {
 				["<C-j>"] = require("telescope.actions").move_selection_next,
 				["<C-k>"] = require("telescope.actions").move_selection_previous,
-				["<C-\\>"] = require("telescope.actions").select_vertical,
-				["<C-_>"] = require("telescope.actions").select_horizontal,
+				["<A-\\>"] = require("telescope.actions").select_vertical,
+				["<A-_>"] = require("telescope.actions").select_horizontal,
 			},
 			n = {
 				["<C-j>"] = require("telescope.actions").move_selection_next,
 				["<C-k>"] = require("telescope.actions").move_selection_previous,
-				["<C-\\>"] = require("telescope.actions").select_vertical,
-				["<C-_>"] = require("telescope.actions").select_horizontal,
+				["<A-\\>"] = require("telescope.actions").select_vertical,
+				["<A-_>"] = require("telescope.actions").select_horizontal,
 				["i"] = function()
 					vim.cmd("startinsert")
 				end,

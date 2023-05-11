@@ -38,7 +38,7 @@ M.ui = {
 		overriden_modules = function()
 			return {
 				fileInfo = function()
-					return " %#St_file_info# " .. vim.fn.expand("%:p:h") .. "%#St_gitIcons#"
+					return "%#St_file_info#" .. "   " .. vim.fn.expand("%:p:h") .. "  "
 				end,
 			}
 		end,
