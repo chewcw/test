@@ -274,7 +274,7 @@ M.telescope = {
 		["<leader>f*"] = { "<cmd> Telescope grep_string <CR>", "search for string under cursor in cwd" },
 
 		-- git
-		["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
+		["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
 		["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
 
 		-- theme switcher
@@ -284,17 +284,17 @@ M.telescope = {
 		["<leader>tt"] = { "<cmd> TermSelect <CR>", "select terminal" },
 
 		-- workspaces
-		["<leader>wl"] = { "<cmd> Telescope workspaces <CR>", "list workspaces" },
+		["<leader>fw"] = { "<cmd> Telescope workspaces <CR>", "list workspaces" },
 
 		-- lsp
 		["gi"] = { "<cmd> Telescope lsp_implementations <CR>", "lsp implementation" },
 		["gr"] = { "<cmd> Telescope lsp_references <CR>", "lsp references" },
 		["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definitions" },
 		["<leader>fds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "lsp document symbols" },
-		["<leader>D"] = { "<cmd> Telescope lsp_type_definitions", "lsp type definitions" },
+		["<leader>fD"] = { "<cmd> Telescope lsp_type_definitions <CR>", "lsp type definitions" },
 
 		-- diagnostic
-		["<leader>fq"] = { "<cmd> Telescope diagnostics", "diagnostic" },
+		["<leader>fq"] = { "<cmd> Telescope diagnostics <CR>", "diagnostic" },
 	},
 }
 
@@ -374,14 +374,14 @@ M.gitsigns = {
 		},
 
 		-- Actions
-		["<leader>rh"] = {
+		["<leader>gr"] = {
 			function()
 				require("gitsigns").reset_hunk()
 			end,
 			"Reset hunk",
 		},
 
-		["<leader>ph"] = {
+		["<leader>gp"] = {
 			function()
 				require("gitsigns").preview_hunk()
 			end,
@@ -395,7 +395,7 @@ M.gitsigns = {
 			"Blame line",
 		},
 
-		["<leader>td"] = {
+		["<leader>gd"] = {
 			function()
 				require("gitsigns").toggle_deleted()
 			end,

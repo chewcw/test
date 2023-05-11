@@ -76,6 +76,26 @@ local options = {
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+		mappings = {
+			i = {
+				["<C-j>"] = require("telescope.actions").move_selection_next,
+				["<C-k>"] = require("telescope.actions").move_selection_previous,
+				["<C-\\>"] = require("telescope.actions").select_vertical,
+				["<C-_>"] = require("telescope.actions").select_horizontal,
+			},
+			n = {
+				["<C-j>"] = require("telescope.actions").move_selection_next,
+				["<C-k>"] = require("telescope.actions").move_selection_previous,
+				["<C-\\>"] = require("telescope.actions").select_vertical,
+				["<C-_>"] = require("telescope.actions").select_horizontal,
+				["i"] = function()
+					vim.cmd("startinsert")
+				end,
+				["/"] = function()
+					vim.cmd("startinsert")
+				end,
+			},
+		},
 	},
 
 	extensions_list = { "themes", "file_browser", "workspaces" },
@@ -101,20 +121,6 @@ local options = {
 					["m"] = require("telescope").extensions.file_browser.actions.move,
 					["r"] = require("telescope").extensions.file_browser.actions.rename,
 					["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
-					["<C-j>"] = require("telescope.actions").move_selection_next,
-					["<C-k>"] = require("telescope.actions").move_selection_previous,
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-					["i"] = function()
-						vim.cmd("startinsert")
-					end,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
-				},
-				i = {
-					["<C-j>"] = require("telescope.actions").move_selection_next,
-					["<C-k>"] = require("telescope.actions").move_selection_previous,
 				},
 			},
 		},
@@ -125,31 +131,9 @@ local options = {
 			mappings = {
 				i = {
 					["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
 				},
 				n = {
 					["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
-				},
-			},
-		},
-		oldfiles = {
-			mappings = {
-        i = {
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-        },
-				n = {
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
 				},
 			},
 		},
@@ -157,31 +141,9 @@ local options = {
 			mappings = {
 				i = {
 					["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
 				},
 				n = {
 					["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
-				},
-			},
-		},
-		buffers = {
-			mappings = {
-        i = {
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-        },
-				n = {
-					["<C-\\>"] = require("telescope.actions").select_vertical,
-					["<C-_>"] = require("telescope.actions").select_horizontal,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
 				},
 			},
 		},
