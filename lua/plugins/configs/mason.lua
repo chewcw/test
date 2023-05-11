@@ -12,6 +12,7 @@ local options = {
 
     -- golang 
     "gopls",
+    "goimports",
 
     -- dotnet
     "omnisharp",

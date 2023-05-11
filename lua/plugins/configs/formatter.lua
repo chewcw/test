@@ -8,6 +8,7 @@ local options = {
     },
     go = {
       require("plugins.configs.formatter.filetypes.go").gofmt,
+      require("plugins.configs.formatter.filetypes.go").goimports,
     },
     javascript = {
       require("plugins.configs.formatter.filetypes.javascript").prettier,

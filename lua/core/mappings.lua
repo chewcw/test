@@ -61,6 +61,9 @@ M.general = {
 
 		-- link
 		["gx"] = { ":execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "open link" },
+
+    -- wrap
+    ["gw"] = { "<cmd> set wrap! <CR>", "toggle line wrapping" }
 	},
 
 	t = {
