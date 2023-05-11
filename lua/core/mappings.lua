@@ -283,11 +283,11 @@ M.telescope = {
 		["<leader>fw"] = { "<cmd> Telescope workspaces <CR>", "list workspaces" },
 
 		-- lsp
-		["gi"] = { "<cmd> Telescope lsp_implementations <CR>", "lsp implementation" },
-		["gr"] = { "<cmd> Telescope lsp_references <CR>", "lsp references" },
-		["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definitions" },
-		["<leader>fds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "lsp document symbols" },
-		["<leader>fD"] = { "<cmd> Telescope lsp_type_definitions <CR>", "lsp type definitions" },
+		["gi"] = { "<cmd> Telescope lsp_implementations show_line=false <CR>", "lsp implementation" },
+		["gr"] = { "<cmd> Telescope lsp_references show_line=false <CR>", "lsp references" },
+		["gd"] = { "<cmd> Telescope lsp_definitions show_line=false <CR>", "lsp definitions" },
+		["<leader>fds"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
+		["<leader>fD"] = { "<cmd> Telescope lsp_type_definitions show_line=false <CR>", "lsp type definitions" },
 
 		-- diagnostic
 		["<leader>fq"] = { "<cmd> Telescope diagnostics <CR>", "diagnostic" },
