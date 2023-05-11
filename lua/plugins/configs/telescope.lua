@@ -11,7 +11,7 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
 
 		fb.file_browser({
 			files = false,
-			depth = false,
+			depth = true,
 			attach_mappings = function(_)
 				require("telescope.actions").select_default:replace(function()
 					local entry_path = action_state.get_selected_entry().Path
@@ -52,14 +52,14 @@ local options = {
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
-				preview_width = 0.55,
-				results_width = 0.8,
+				preview_width = 0.45,
+				results_width = 0.85,
 			},
 			vertical = {
 				mirror = false,
 			},
-			width = 0.87,
-			height = 0.90,
+			width = 0.90,
+			height = 0.95,
 			preview_cutoff = 120,
 		},
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -109,6 +109,20 @@ local options = {
 			hidden = true,
 			initial_mode = "normal",
 			preview = true,
+			layout_strategy = "horizontal",
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+					preview_width = 0.45,
+					results_width = 0.85,
+				},
+				vertical = {
+					mirror = false,
+				},
+				width = 0.90,
+				height = 0.95,
+				preview_cutoff = 120,
+			},
 			mappings = {
 				n = {
 					["q"] = require("telescope.actions").close,
