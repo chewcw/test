@@ -143,6 +143,28 @@ M.lspconfig = {
 			"lsp hover",
 		},
 
+    ["ge"] = {
+      function()
+        vim.diagnostic.open_float()
+      end,
+      "show diagnostics message"
+    },
+
+    ["gE"] = {
+      function()
+        if vim.diagnostic.config().virtual_text then
+          vim.diagnostic.config({
+            virtual_text = false,
+          })
+        else
+          vim.diagnostic.config({
+            virtual_text = true,
+          })
+        end
+      end,
+      "show diagnostics message"
+    },
+
 		-- ["gi"] = {
 		-- 	function()
 		-- 		vim.lsp.buf.implementation()
