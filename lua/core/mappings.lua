@@ -62,8 +62,8 @@ M.general = {
 		-- link
 		["gx"] = { ":execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "open link" },
 
-    -- wrap
-    ["gw"] = { "<cmd> set wrap! <CR>", "toggle line wrapping" }
+		-- wrap
+		["gw"] = { "<cmd> set wrap! <CR>", "toggle line wrapping" },
 	},
 
 	t = {
@@ -133,12 +133,12 @@ M.lspconfig = {
 			"lsp declaration",
 		},
 
-		["gd"] = {
-			function()
-				vim.lsp.buf.definition()
-			end,
-			"lsp definition",
-		},
+		-- ["gd"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.definition()
+		-- 	end,
+		-- 	"lsp definition",
+		-- },
 
 		["gh"] = {
 			function()
@@ -147,12 +147,12 @@ M.lspconfig = {
 			"lsp hover",
 		},
 
-		["gi"] = {
-			function()
-				vim.lsp.buf.implementation()
-			end,
-			"lsp implementation",
-		},
+		-- ["gi"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.implementation()
+		-- 	end,
+		-- 	"lsp implementation",
+		-- },
 
 		["<leader>ls"] = {
 			function()
@@ -161,12 +161,12 @@ M.lspconfig = {
 			"lsp signature_help",
 		},
 
-		["<leader>D"] = {
-			function()
-				vim.lsp.buf.type_definition()
-			end,
-			"lsp definition type",
-		},
+		-- ["<leader>D"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.type_definition()
+		-- 	end,
+		-- 	"lsp definition type",
+		-- },
 
 		["gn"] = {
 			function()
@@ -182,19 +182,19 @@ M.lspconfig = {
 			"lsp code_action",
 		},
 
-		["gr"] = {
-			function()
-				vim.lsp.buf.references()
-			end,
-			"lsp references",
-		},
+		-- ["gr"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.references()
+		-- 	end,
+		-- 	"lsp references",
+		-- },
 
-		["<leader>f"] = {
-			function()
-				vim.diagnostic.open_float({ border = "rounded" })
-			end,
-			"floating diagnostic",
-		},
+		-- ["<leader>f"] = {
+		-- 	function()
+		-- 		vim.diagnostic.open_float({ border = "rounded" })
+		-- 	end,
+		-- 	"floating diagnostic",
+		-- },
 
 		["[d"] = {
 			function()
@@ -210,19 +210,19 @@ M.lspconfig = {
 			"goto_next",
 		},
 
-		["<leader>q"] = {
-			function()
-				vim.diagnostic.setloclist()
-			end,
-			"diagnostic setloclist",
-		},
+		-- ["<leader>q"] = {
+		-- 	function()
+		-- 		vim.diagnostic.setloclist()
+		-- 	end,
+		-- 	"diagnostic setloclist",
+		-- },
 
-		["<leader>fm"] = {
-			function()
-				vim.lsp.buf.format({ async = true })
-			end,
-			"lsp formatting",
-		},
+		-- ["<leader>fm"] = {
+		-- 	function()
+		-- 		vim.lsp.buf.format({ async = true })
+		-- 	end,
+		-- 	"lsp formatting",
+		-- },
 
 		-- ["<leader>wa"] = {
 		-- 	function()
@@ -283,8 +283,18 @@ M.telescope = {
 		-- terminal switcher
 		["<leader>tt"] = { "<cmd> TermSelect <CR>", "select terminal" },
 
-    -- workspaces
-    ["<leader>wl"] = { "<cmd> Telescope workspaces <CR>", "list workspaces" },
+		-- workspaces
+		["<leader>wl"] = { "<cmd> Telescope workspaces <CR>", "list workspaces" },
+
+		-- lsp
+		["gi"] = { "<cmd> Telescope lsp_implementations <CR>", "lsp implementation" },
+		["gr"] = { "<cmd> Telescope lsp_references <CR>", "lsp references" },
+		["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "lsp definitions" },
+		["<leader>fds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "lsp document symbols" },
+		["<leader>D"] = { "<cmd> Telescope lsp_type_definitions", "lsp type definitions" },
+
+		-- diagnostic
+		["<leader>fq"] = { "<cmd> Telescope diagnostics", "diagnostic" },
 	},
 }
 
