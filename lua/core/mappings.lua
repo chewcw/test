@@ -411,17 +411,6 @@ M.formatter = {
 	},
 }
 
-M.commentary = {
-	plugin = true,
-
-	n = {
-		["gcc"] = {
-			"<cmd> Commentary <CR>",
-			"Comment",
-		},
-	},
-}
-
 M.easymotion = {
 	plugin = true,
 

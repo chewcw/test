@@ -243,9 +243,6 @@ local default_plugins = {
 	{
 		"tpope/vim-commentary",
 		event = "BufEnter",
-		init = function()
-			require("core.utils").load_mappings("commentary")
-		end,
 	},
 
 	{
