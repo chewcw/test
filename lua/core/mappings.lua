@@ -445,11 +445,11 @@ M.toggleterm = {
 	plugin = true,
 
 	n = {
-		["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+		["<C-\\>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
 	},
 
 	t = {
-		["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+		["<C-\\>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
 	},
 }
 
