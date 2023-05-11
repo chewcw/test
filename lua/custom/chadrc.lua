@@ -12,6 +12,10 @@ M.ui = {
 		CursorLine = {
 			bg = "black2",
 		},
+    Folded = {
+      bg = "black2",
+      fg = "light_grey",
+    },
 		St_InsertMode = {
 			bg = "purple",
 			fg = "black",
