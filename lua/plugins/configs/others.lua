@@ -80,7 +80,7 @@ M.workspaces = {
   hooks = {
     open = "Telescope find_files",
   },
-  cd_type = "local",
+  cd_type = "global",
 }
 
 return M
