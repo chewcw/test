@@ -301,7 +301,7 @@ local default_plugins = {
 
 	{
 		"Exafunction/codeium.vim",
-		cmd = "Codeium",
+		cmd = "CodeiumEnable",
 		init = function()
 			require("core.utils").load_mappings("codeium")
 		end,
