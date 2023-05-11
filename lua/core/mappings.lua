@@ -66,10 +66,6 @@ M.general = {
 		["gw"] = { "<cmd> set wrap! <CR>", "toggle line wrapping" },
 	},
 
-	t = {
-		["<Esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "escape terminal mode" },
-	},
-
 	v = {
 		["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "move up", opts = { expr = true } },
 		["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "move down", opts = { expr = true } },
@@ -445,11 +441,12 @@ M.toggleterm = {
 	plugin = true,
 
 	n = {
-		["<C-\\>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+		["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
 	},
 
 	t = {
-		["<C-\\>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+		["<A-.>"] = { ":ToggleTerm direction=horizontal <CR>", "toggle term in horizontal mode" },
+		["<Esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "escape terminal mode" },
 	},
 }
 
