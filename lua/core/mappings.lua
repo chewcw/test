@@ -113,6 +113,8 @@ M.tabufline = {
 			end,
 			"close buffer",
 		},
+
+    ["<A-d>"] = { "<cmd> bd <CR>", "delete the buffer from buffer list" }
 	},
 }
 
