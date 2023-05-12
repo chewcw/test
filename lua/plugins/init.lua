@@ -201,7 +201,7 @@ local default_plugins = {
 
 	{
 		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
+		cmd = { "Telescope" },
 		init = function()
 			require("core.utils").load_mappings("telescope")
 		end,
@@ -247,7 +247,7 @@ local default_plugins = {
 
 	{
 		"easymotion/vim-easymotion",
-		event = "BufEnter",
+    event = "BufEnter",
 		init = function()
 			require("core.utils").load_mappings("easymotion")
 		end,
@@ -298,21 +298,15 @@ local default_plugins = {
 
 	{
 		"Exafunction/codeium.vim",
-		cmd = "CodeiumEnable",
+		cmd = { "CodeiumEnable" },
 		init = function()
 			require("core.utils").load_mappings("codeium")
 		end,
 	},
 
-	-- {
-	--   "puremourning/vimspector",
-	--   lazy = false,
-	--   config = true,
-	-- },
-
 	{
 		"natecraddock/workspaces.nvim",
-		event = "BufEnter",
+		cmd = { "Telescope workspaces" },
 		config = true,
 		opts = function()
 			return require("plugins.configs.others").workspaces

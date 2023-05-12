@@ -143,28 +143,6 @@ M.lspconfig = {
 			"lsp hover",
 		},
 
-    ["ge"] = {
-      function()
-        vim.diagnostic.open_float()
-      end,
-      "show diagnostics message"
-    },
-
-    ["gE"] = {
-      function()
-        if vim.diagnostic.config().virtual_text then
-          vim.diagnostic.config({
-            virtual_text = false,
-          })
-        else
-          vim.diagnostic.config({
-            virtual_text = true,
-          })
-        end
-      end,
-      "show diagnostics message"
-    },
-
 		-- ["gi"] = {
 		-- 	function()
 		-- 		vim.lsp.buf.implementation()
@@ -213,6 +191,24 @@ M.lspconfig = {
 		-- 	end,
 		-- 	"floating diagnostic",
 		-- },
+
+		["ge"] = {
+			function()
+				vim.diagnostic.open_float()
+			end,
+			"show diagnostics message",
+		},
+
+		["gE"] = {
+			function()
+				if vim.diagnostic.config().virtual_text then
+					vim.diagnostic.config({ virtual_text = false })
+				else
+					vim.diagnostic.config({ virtual_text = true })
+				end
+			end,
+			"show diagnostics message",
+		},
 
 		["[d"] = {
 			function()
@@ -311,11 +307,16 @@ M.telescope = {
 		["gR"] = { "<cmd> Telescope lsp_references show_line=false jump_type=vsplit <CR>", "lsp references" },
 		["gd"] = { "<cmd> Telescope lsp_definitions show_line=false <CR>", "lsp definitions" },
 		["gD"] = { "<cmd> Telescope lsp_definitions show_line=false jump_type=vsplit <CR>", "lsp definitions" },
-		["<leader>fds"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
-		["<leader>fD"] = { "<cmd> Telescope lsp_type_definitions show_line=false <CR>", "lsp type definitions" },
+		["gt"] = { "<cmd> Telescope lsp_type_definitions show_line=false <CR>", "lsp type definitions" },
+		["gT"] = {
+			"<cmd> Telescope lsp_type_definitions show_line=false jump_type=vsplit <CR>",
+			"lsp type definitions",
+		},
+		["gfds"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
 
 		-- diagnostic
-		["<leader>fq"] = { "<cmd> Telescope diagnostics <CR>", "diagnostic" },
+		["<leader>fQ"] = { "<cmd> Telescope diagnostics <CR>", "open workspace diagnostics" },
+		["<leader>fq"] = { "<cmd> Telescope diagnostics bufnr=0 <CR>", "open current buffer diagnostics" },
 	},
 }
 
