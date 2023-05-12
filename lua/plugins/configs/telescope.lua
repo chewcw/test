@@ -1,8 +1,14 @@
 -- reference https://github.com/nvim-telescope/telescope.nvim/issues/2201#issuecomment-1284691502
 local ts_select_dir_for_grep_or_find_files = function(grep)
-	return function(_)
+	return function(prompt_bufnr)
 		local action_state = require("telescope.actions.state")
 		local fb = require("telescope").extensions.file_browser
+    -- TODO: chewcw - how to get these information from the picker
+    --  default to get all including ignored at the moment
+    local no_ignore = true
+    local hidden = true
+    local follow = true
+
 		local grep_or_find_files = require("telescope.builtin").live_grep
 		if not grep then
 			grep_or_find_files = require("telescope.builtin").find_files
@@ -22,6 +28,9 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
 						results_title = relative .. "/",
 						cwd = absolute,
 						default_text = current_line,
+            no_ignore = no_ignore,
+            hidden = hidden,
+            follow = follow,
 					})
 				end)
 				return true
@@ -169,6 +178,29 @@ local options = {
 				},
 			},
 		},
+    buffers = {
+      mappings = {
+        n = {
+          -- close the buffer
+          ["x"] = function(prompt_bufnr)
+            local action_state = require("telescope.actions.state")
+            local actions = require("telescope.actions")
+            local current_picker = action_state.get_current_picker(prompt_bufnr)
+            local multi_selections = current_picker:get_multi_selection()
+            if next(multi_selections) == nil then
+              local selection = action_state.get_selected_entry()
+              actions.close(prompt_bufnr)
+              vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+            else
+              actions.close(prompt_bufnr)
+              for _, selection in ipairs(multi_selections) do
+                vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+              end
+            end
+          end,
+        },
+      },
+    },
 	},
 }
 

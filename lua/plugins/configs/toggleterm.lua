@@ -6,7 +6,7 @@ local options = {
       return vim.o.columns * 0.4
     end
   end,
-  start_in_insert = true,
+  start_in_insert = false,
   insert_mappings = true,
   terminal_mappings = true,
   hide_numbers = false,
