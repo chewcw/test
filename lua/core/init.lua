@@ -66,6 +66,7 @@ opt.colorcolumn = "80"
 
 -- wrap
 vim.wo.wrap = false
+opt.linebreak = true
 
 -- leader
 g.mapleader = " "
