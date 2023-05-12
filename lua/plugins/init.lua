@@ -280,7 +280,7 @@ local default_plugins = {
 		"jeetsukumaran/vim-markology",
 		event = "VeryLazy",
 		init = function()
-			vim.g.markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+			vim.g.markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		end,
 	},
 
