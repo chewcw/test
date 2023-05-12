@@ -78,7 +78,10 @@ M.wilder = {
 
 M.workspaces = {
   hooks = {
-    open = "Telescope find_files",
+    open = {
+      "NvimTreeToggle",
+      "Telescope find_files",
+    },
   },
   cd_type = "global",
 }
