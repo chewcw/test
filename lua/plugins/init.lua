@@ -247,7 +247,7 @@ local default_plugins = {
 
 	{
 		"easymotion/vim-easymotion",
-    event = "BufEnter",
+		event = "BufEnter",
 		init = function()
 			require("core.utils").load_mappings("easymotion")
 		end,
@@ -311,6 +311,12 @@ local default_plugins = {
 		opts = function()
 			return require("plugins.configs.others").workspaces
 		end,
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		event = "BufEnter",
+		config = true,
 	},
 
 	-- Only load whichkey after all the gui
