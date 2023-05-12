@@ -314,7 +314,8 @@ M.telescope = {
 			"<cmd> Telescope lsp_type_definitions show_line=false jump_type=vsplit <CR>",
 			"lsp type definitions",
 		},
-		["gfds"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
+		["gs"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
+		["gS"] = { "<cmd> Telescope lsp_workspace_symbols show_line=false <CR>", "lsp workspace symbols" },
 
 		-- diagnostic
 		["<leader>fQ"] = { "<cmd> Telescope diagnostics <CR>", "open workspace diagnostics" },
