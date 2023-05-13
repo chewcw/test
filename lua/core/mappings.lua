@@ -317,15 +317,15 @@ M.telescope = {
 
 		-- lsp
 		["gi"] = { "<cmd> Telescope lsp_implementations show_line=false <CR>", "lsp implementation" },
-		["gI"] = { "<cmd> Telescope lsp_implementations show_line=false jump_type=vsplit <CR>", "lsp implementation" },
+		["gI"] = { "<cmd> Telescope lsp_implementations show_line=false jump_type=vsplit <CR>", "lsp implementation in vsplit" },
 		["gr"] = { "<cmd> Telescope lsp_references show_line=false <CR>", "lsp references" },
-		["gR"] = { "<cmd> Telescope lsp_references show_line=false jump_type=vsplit <CR>", "lsp references" },
+		["gR"] = { "<cmd> Telescope lsp_references show_line=false jump_type=vsplit <CR>", "lsp references in vsplit" },
 		["gd"] = { "<cmd> Telescope lsp_definitions show_line=false <CR>", "lsp definitions" },
-		["gD"] = { "<cmd> Telescope lsp_definitions show_line=false jump_type=vsplit <CR>", "lsp definitions" },
+		["gD"] = { "<cmd> Telescope lsp_definitions show_line=false jump_type=vsplit <CR>", "lsp definitions in vsplit" },
 		["gt"] = { "<cmd> Telescope lsp_type_definitions show_line=false <CR>", "lsp type definitions" },
 		["gT"] = {
 			"<cmd> Telescope lsp_type_definitions show_line=false jump_type=vsplit <CR>",
-			"lsp type definitions",
+			"lsp type definitions in vsplit",
 		},
 		["gs"] = { "<cmd> Telescope lsp_document_symbols show_line=false <CR>", "lsp document symbols" },
 		["gS"] = { "<cmd> Telescope lsp_workspace_symbols show_line=false <CR>", "lsp workspace symbols" },
@@ -447,7 +447,10 @@ M.formatter = {
 
 	n = {
 		["<A-f>"] = {
-			"<cmd> Format <CR>",
+			-- "<cmd> Format <CR>",
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
 			"Format document",
 		},
 	},

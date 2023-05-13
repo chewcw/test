@@ -99,9 +99,9 @@ local options = {
 				["<C-k>"] = require("telescope.actions").move_selection_previous,
 				["<A-\\>"] = require("telescope.actions").select_vertical,
 				["<A-_>"] = require("telescope.actions").select_horizontal,
-				["l"] = function()
-          vim.fn.feedkeys("\r")
-        end,
+				-- ["l"] = function()
+          -- vim.fn.feedkeys("\r")
+        -- end,
 				["i"] = function()
 					vim.cmd("startinsert")
 				end,

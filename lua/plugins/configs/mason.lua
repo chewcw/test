@@ -5,10 +5,8 @@ local options = {
     "stylua",
 
     -- web dev
-    "css-lsp",
-    "html-lsp",
     "typescript-language-server",
-    "prettier",
+    "prettierd",
 
     -- golang 
     "gopls",
@@ -16,19 +14,15 @@ local options = {
 
     -- dotnet
     "omnisharp",
+    "csharpier",
 
     -- python
-    "autopep8",
-    "pyright",
+    "python-lsp-server",
+    "ruff",
 
-    --json
-    "json-lsp",
-    "jsonlint",
-
-    -- yaml
-    "yaml-language-server",
-    "yamlfmt",
-  }, -- not an option from mason.nvim
+    -- rust
+    "rust-analyzer",
+  },
 
   PATH = "skip",
 

@@ -11,12 +11,12 @@ local options = {
       require("plugins.configs.formatter.filetypes.go").goimports,
     },
     javascript = {
-      require("plugins.configs.formatter.filetypes.javascript").prettier,
-      require("plugins.configs.formatter.filetypes.javascriptreact").prettier,
+      require("plugins.configs.formatter.filetypes.javascript").denofmt,
+      require("plugins.configs.formatter.filetypes.javascriptreact").denofmt,
     },
     typescript = {
-      require("plugins.configs.formatter.filetypes.typescript").tsfmt,
-      require("plugins.configs.formatter.filetypes.typescriptreact").tsfmt,
+      require("plugins.configs.formatter.filetypes.typescript").denofmt,
+      require("plugins.configs.formatter.filetypes.typescriptreact").denofmt,
     },
     css = {
       require("plugins.configs.formatter.filetypes.css").cssbeautify(),

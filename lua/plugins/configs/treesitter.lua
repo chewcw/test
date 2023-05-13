@@ -12,6 +12,7 @@ local options = {
     "go",
     "c_sharp",
     "python",
+    "rust",
   },
 
   highlight = {
