@@ -6,7 +6,7 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
     -- TODO: chewcw - how to get these information from the picker
     --  default to get all including ignored at the moment
     local no_ignore = true
-    local hidden = true
+    local hidden = false
     local follow = true
 
 		local grep_or_find_files = require("telescope.builtin").live_grep
