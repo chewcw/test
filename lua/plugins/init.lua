@@ -225,17 +225,6 @@ local default_plugins = {
 	},
 
 	{
-		"mhartington/formatter.nvim",
-		event = "BufEnter",
-		init = function()
-			require("core.utils").load_mappings("formatter")
-		end,
-		opts = function()
-			return require("plugins.configs.formatter")
-		end,
-	},
-
-	{
 		"tpope/vim-surround",
 		event = "BufEnter",
 	},

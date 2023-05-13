@@ -447,7 +447,6 @@ M.formatter = {
 
 	n = {
 		["<A-f>"] = {
-			-- "<cmd> Format <CR>",
       function()
         vim.lsp.buf.format({ async = true })
       end,
