@@ -90,7 +90,7 @@ lspconfig.pylsp.setup({
 lspconfig.tsserver.setup({
   on_attach = M.on_attach,
   capabilities = M.capabilities,
-  cmd = { home .. "/.local/share/nvim/mason/bin/typescript-language-server" },
+  cmd = { home .. "/.local/share/nvim/mason/bin/typescript-language-server", "--stdio" },
 })
 
 -- rust

@@ -80,7 +80,6 @@ M.workspaces = {
 	hooks = {
 		open = {
 			"NvimTreeToggle",
-			"Telescope find_files",
 		},
 	},
 	cd_type = "global",
