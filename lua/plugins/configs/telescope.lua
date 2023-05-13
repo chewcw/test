@@ -1,6 +1,6 @@
 -- reference https://github.com/nvim-telescope/telescope.nvim/issues/2201#issuecomment-1284691502
 local ts_select_dir_for_grep_or_find_files = function(grep)
-	return function(prompt_bufnr)
+	return function(_)
 		local action_state = require("telescope.actions.state")
 		local fb = require("telescope").extensions.file_browser
     -- TODO: chewcw - how to get these information from the picker
@@ -148,7 +148,7 @@ local options = {
             vim.fn.feedkeys("\r")
           end,
 					["y"] = require("telescope").extensions.file_browser.actions.copy,
-					["x"] = require("telescope").extensions.file_browser.actions.remove,
+					["d"] = require("telescope").extensions.file_browser.actions.remove,
 					["m"] = require("telescope").extensions.file_browser.actions.move,
 					["r"] = require("telescope").extensions.file_browser.actions.rename,
 					["."] = require("telescope").extensions.file_browser.actions.toggle_hidden,
@@ -182,7 +182,7 @@ local options = {
       mappings = {
         n = {
           -- close the buffer
-          ["x"] = function(prompt_bufnr)
+          ["d"] = function(prompt_bufnr)
             local action_state = require("telescope.actions.state")
             local actions = require("telescope.actions")
             local current_picker = action_state.get_current_picker(prompt_bufnr)

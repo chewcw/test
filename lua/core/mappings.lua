@@ -114,7 +114,7 @@ M.tabufline = {
 			"close buffer",
 		},
 
-    ["<A-d>"] = { "<cmd> bd! <CR>", "delete the buffer from buffer list" }
+		["<A-d>"] = { "<cmd> bd! <CR>", "delete the buffer from buffer list" },
 	},
 }
 
@@ -263,6 +263,17 @@ M.lspconfig = {
 	},
 }
 
+local require_nvim_tree = function(api, desc)
+	return {
+		function()
+			vim.schedule(function()
+				api()
+			end)
+		end,
+		desc,
+	}
+end
+-- require_nvim_tree
 M.nvimtree = {
 	plugin = true,
 
