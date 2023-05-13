@@ -36,7 +36,9 @@ M.general = {
 		["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "move down", opts = { expr = true } },
 
 		-- new buffer
-		["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
+		["<leader>bb"] = { "<cmd> enew <CR>", "new buffer" },
+		["<leader>b\\"] = { "<cmd> vnew <CR>", "new buffer" },
+		["<leader>b_"] = { "<cmd> new <CR>", "new buffer" },
 		["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
 		-- marks
