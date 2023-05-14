@@ -8,7 +8,7 @@ M.general = {
 		["<A-h>"] = { "<Left>", "move left" },
 		["<A-l>"] = { "<Right>", "move right" },
 		["<A-j>"] = { "<Down>", "move down" },
-		["<A-k>"] = { "<Up>", "move up" },
+		["<A-k>"] = { "<Up>","move up" },
 	},
 
 	n = {
@@ -235,12 +235,12 @@ M.lspconfig = {
 		-- 	"diagnostic setloclist",
 		-- },
 
-		-- ["<leader>fm"] = {
-		-- 	function()
-		-- 		vim.lsp.buf.format({ async = true })
-		-- 	end,
-		-- 	"lsp formatting",
-		-- },
+		["<A-f>"] = {
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
+			"Format document",
+		},
 
 		-- ["<leader>wa"] = {
 		-- 	function()
@@ -438,19 +438,6 @@ M.gitsigns = {
 				require("gitsigns").toggle_deleted()
 			end,
 			"Toggle deleted",
-		},
-	},
-}
-
-M.formatter = {
-	plugin = true,
-
-	n = {
-		["<A-f>"] = {
-      function()
-        vim.lsp.buf.format({ async = true })
-      end,
-			"Format document",
 		},
 	},
 }
