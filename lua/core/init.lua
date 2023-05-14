@@ -21,6 +21,7 @@ opt.shiftwidth = 2
 opt.smartindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
+opt.guicursor="n-v-c:block-blinkon50-blinkoff20,i-ci-cr-c:ver30,r-cr-o:hor20"
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = false
