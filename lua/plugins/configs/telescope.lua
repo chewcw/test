@@ -5,7 +5,7 @@ local utils_window = require("core.utils_window")
 -- so that the picker can show all files or folders under that directory
 -- reference https://github.com/nvim-telescope/telescope.nvim/issues/2201#issuecomment-1284691502
 local ts_select_dir_for_grep_or_find_files = function(grep)
-  return function(_)
+  local select_cwd = function(_)
     -- this global variable is set in mappings
     -- to identify this is a "all" search - including .gitignore files
     -- or "normal" search - without .gitignore files
@@ -45,6 +45,7 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
       end,
     })
   end
+  return select_cwd
 end
 
 local options = {
@@ -118,21 +119,21 @@ local options = {
         -- ["l"] = function()
         -- vim.fn.feedkeys("\r")
         -- end,
-        ["i"] = {
-          function()
+        ["i"] = (function()
+          local insert_mode = function()
             vim.cmd("startinsert")
-          end,
-          "insert mode",
-        },
-        ["/"] = {
-          function()
+          end
+          return insert_mode
+        end)(),
+        ["/"] = (function()
+          local insert_mode = function()
             vim.cmd("startinsert")
-          end,
-          "insert mode",
-        },
+          end
+          return insert_mode
+        end)(),
         -- select window (which split) to open
-        ["<BS>"] = {
-          function(prompt_bufnr)
+        ["<BS>"] = (function(prompt_bufnr)
+          local select_window_to_open = function()
             local entry = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
             if type(entry[1]) == "string" then
               -- this is a new file
@@ -141,9 +142,9 @@ local options = {
               -- not a new file i.e. reference, etc.
               utils_window.open(entry.value.filename, entry.value.lnum, entry.value.col - 1)
             end
-          end,
-          "open in window selection",
-        },
+          end
+          return select_window_to_open
+        end)(),
       },
     },
   },
@@ -180,12 +181,12 @@ local options = {
           ["T"] = require("telescope").extensions.file_browser.actions.goto_cwd,
           ["n"] = require("telescope").extensions.file_browser.actions.create_from_prompt,
           ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
-          ["l"] = {
-            function()
+          ["l"] = (function()
+            local enter = function()
               vim.fn.feedkeys("\r")
-            end,
-            "same as pressing return",
-          },
+            end
+            return enter
+          end)(),
           ["y"] = require("telescope").extensions.file_browser.actions.copy,
           ["d"] = require("telescope").extensions.file_browser.actions.remove,
           ["m"] = require("telescope").extensions.file_browser.actions.move,
@@ -200,43 +201,30 @@ local options = {
     live_grep = {
       mappings = {
         i = {
-          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(true), "select current working dir" },
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
         },
         n = {
-          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(true), "select current working dir" },
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
         },
       },
     },
+
     find_files = {
       mappings = {
         i = {
-          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(false), "select current working dir" },
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
         },
         n = {
-          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(false), "select current working dir" },
+          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
         },
       },
     },
+
     buffers = {
       mappings = {
         n = {
           -- close the buffer
-          ["d"] = function(prompt_bufnr)
-            local action_state = require("telescope.actions.state")
-            local actions = require("telescope.actions")
-            local current_picker = action_state.get_current_picker(prompt_bufnr)
-            local multi_selections = current_picker:get_multi_selection()
-            if next(multi_selections) == nil then
-              local selection = action_state.get_selected_entry()
-              actions.close(prompt_bufnr)
-              vim.api.nvim_buf_delete(selection.bufnr, { force = true })
-            else
-              actions.close(prompt_bufnr)
-              for _, selection in ipairs(multi_selections) do
-                vim.api.nvim_buf_delete(selection.bufnr, { force = true })
-              end
-            end
-          end,
+          ["d"] = require("telescope.actions").delete_buffer + require("telescope.actions").move_to_top,
         },
       },
     },
