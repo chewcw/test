@@ -13,6 +13,7 @@ M.general = {
 
 	n = {
 		["<leader>n"] = { ":nohl <CR>", "clear highlights" },
+
 		-- switch between windows
 		["<C-h>"] = { "<C-w>h", "window left" },
 		["<C-l>"] = { "<C-w>l", "window right" },
@@ -293,9 +294,11 @@ M.telescope = {
 		["<leader>fs"] = { "<cmd> Telescope file_browser <CR>", "file browser" },
 
 		-- find
-		["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
+    -- set global variable here so that the telescope picker knows this is a normal finder
+    -- see telescope config file for more information
+		["<leader>ff"] = { "<cmd> let g:find_files_type='normal' | Telescope find_files <CR>", "find files" },
+		["<leader>fa"] = { "<cmd> let g:find_files_type='all' | Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
 		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
-		["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
 		["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
 		["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
 		["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
