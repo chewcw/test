@@ -7,7 +7,7 @@ local utils_window = require("core.utils_window")
 local ts_select_dir_for_grep_or_find_files = function(grep)
   return function(_)
     -- this global variable is set in mappings
-    -- to identify this is a "all" search - including .gitignore files 
+    -- to identify this is a "all" search - including .gitignore files
     -- or "normal" search - without .gitignore files
     local no_ignore = false
     if vim.g.find_files_type == "all" then
@@ -26,6 +26,7 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
     fb.file_browser({
       files = false,
       depth = true,
+      hidden = false,
       attach_mappings = function(_)
         require("telescope.actions").select_default:replace(function()
           local entry_path = action_state.get_selected_entry().Path
@@ -117,23 +118,32 @@ local options = {
         -- ["l"] = function()
         -- vim.fn.feedkeys("\r")
         -- end,
-        ["i"] = function()
-          vim.cmd("startinsert")
-        end,
-        ["/"] = function()
-          vim.cmd("startinsert")
-        end,
+        ["i"] = {
+          function()
+            vim.cmd("startinsert")
+          end,
+          "insert mode",
+        },
+        ["/"] = {
+          function()
+            vim.cmd("startinsert")
+          end,
+          "insert mode",
+        },
         -- select window (which split) to open
-        ["<BS>"] = function(prompt_bufnr)
-          local entry = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
-          if type(entry[1]) == "string" then
-            -- this is a new file
-            utils_window.open(entry[1], 0, 0)
-          else
-            -- not a new file i.e. reference, etc.
-            utils_window.open(entry.value.filename, entry.value.lnum, entry.value.col - 1)
-          end
-        end,
+        ["<BS>"] = {
+          function(prompt_bufnr)
+            local entry = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+            if type(entry[1]) == "string" then
+              -- this is a new file
+              utils_window.open(entry[1], 0, 0)
+            else
+              -- not a new file i.e. reference, etc.
+              utils_window.open(entry.value.filename, entry.value.lnum, entry.value.col - 1)
+            end
+          end,
+          "open in window selection",
+        },
       },
     },
   },
@@ -170,9 +180,12 @@ local options = {
           ["T"] = require("telescope").extensions.file_browser.actions.goto_cwd,
           ["n"] = require("telescope").extensions.file_browser.actions.create_from_prompt,
           ["h"] = require("telescope").extensions.file_browser.actions.goto_parent_dir,
-          ["l"] = function()
-            vim.fn.feedkeys("\r")
-          end,
+          ["l"] = {
+            function()
+              vim.fn.feedkeys("\r")
+            end,
+            "same as pressing return",
+          },
           ["y"] = require("telescope").extensions.file_browser.actions.copy,
           ["d"] = require("telescope").extensions.file_browser.actions.remove,
           ["m"] = require("telescope").extensions.file_browser.actions.move,
@@ -187,20 +200,20 @@ local options = {
     live_grep = {
       mappings = {
         i = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(true), "select current working dir" },
         },
         n = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(true),
+          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(true), "select current working dir" },
         },
       },
     },
     find_files = {
       mappings = {
         i = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
+          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(false), "select current working dir" },
         },
         n = {
-          ["<C-f>"] = ts_select_dir_for_grep_or_find_files(false),
+          ["<C-f>"] = { ts_select_dir_for_grep_or_find_files(false), "select current working dir" },
         },
       },
     },
