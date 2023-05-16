@@ -182,10 +182,10 @@ end
 local function get_target_winid()
   -- TODO: chewcw - if only one window no need to be picked
   -- first available window
-  if not vim.tbl_contains(vim.api.nvim_tabpage_list_wins(0), target_winid) then
-    target_winid = first_win_id()
-    return target_winid
-  end
+  -- if not vim.tbl_contains(vim.api.nvim_tabpage_list_wins(0), target_winid) then
+  --   target_winid = first_win_id()
+  --   return target_winid
+  -- end
 
   -- pick a window
   target_winid = pick_win_id()
