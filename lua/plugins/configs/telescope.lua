@@ -27,13 +27,8 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
       files = false,
       depth = true,
       hidden = false,
-      attach_mappings = function(_, map)
-        -- backspace here means to select this folder for next action
-        -- not using default "<CR>" here because sometimes the picker
-        -- has problem not showing the correct root folder I want,
-        -- so I can still press "f" to go to file mode and go up to the
-        -- dir that I want, and press "<BS>".
-        map("n", "<BS>", function(_)
+      attach_mappings = function(_)
+        require("telescope.actions").select_default:replace(function()
           local entry_path = action_state.get_selected_entry().Path
           local dir = entry_path:is_dir() and entry_path or entry_path:parent()
           local relative = dir:make_relative(vim.fn.getcwd())
