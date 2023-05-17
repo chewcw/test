@@ -229,7 +229,7 @@ local options = {
       mappings = {
         n = {
           -- close the buffer
-          ["d"] = require("telescope.actions").delete_buffer + require("telescope.actions").move_to_top,
+          ["d"] = require("telescope.actions").delete_buffer,
         },
       },
     },
