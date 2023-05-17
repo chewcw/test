@@ -135,12 +135,17 @@ local options = {
         ["<BS>"] = (function(prompt_bufnr)
           local select_window_to_open = function()
             local entry = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+            -- this is a new file
             if type(entry[1]) == "string" then
-              -- this is a new file
               utils_window.open(entry[1], 0, 0)
-            else
               -- not a new file i.e. reference, etc.
+            elseif entry.value.filename ~= nil and entry.value.lnum ~= nil and entry.value.col ~= nil then
               utils_window.open(entry.value.filename, entry.value.lnum, entry.value.col - 1)
+              -- buffer
+            elseif entry.filename ~= nil and entry.lnum ~= nil then
+              utils_window.open(entry.filename, entry.lnum, 0)
+            else
+              print("invalid")
             end
           end
           return select_window_to_open
