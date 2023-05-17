@@ -154,7 +154,7 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "file_browser", "workspaces" },
+  extensions_list = { "themes", "file_browser", "workspaces", "ui-select" },
 
   extensions = {
     file_browser = {

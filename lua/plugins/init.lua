@@ -225,6 +225,11 @@ local default_plugins = {
   },
 
   {
+    "nvim-telescope/telescope-ui-select.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
+
+  {
     "tpope/vim-surround",
     event = "BufEnter",
   },
@@ -318,9 +323,9 @@ local default_plugins = {
 
   -- Only load whichkey after all the gui
   {
-    "folke/which-key.nvim", 
+    "folke/which-key.nvim",
     keys = { "<leader>", '"', "'", "`", "c", "v" },
-    init = function() 
+    init = function()
       require("core.utils").load_mappings("whichkey")
     end,
     config = function(_, opts)
