@@ -64,8 +64,8 @@ M.ui = {
       fg = "white",
     },
     St_file_info = {
-      fg = "grey_fg",
-      bold = true,
+      fg = "yellow",
+      italic = true,
     },
   },
 
