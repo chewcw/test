@@ -2,49 +2,57 @@
 local M = {}
 
 M.ui = {
-	theme = "radium",
-	theme_toggle = { "radium", "one_light" },
+  theme = "radium",
+  theme_toggle = { "radium", "one_light" },
 
-	hl_override = {
-		Comment = {
-			italic = true,
-		},
-		CursorLine = {
-			bg = "black2",
-		},
+  hl_override = {
+    Comment = {
+      italic = true,
+    },
+    CursorLine = {
+      bg = "black2",
+    },
     Folded = {
       bg = "black2",
       fg = "light_grey",
     },
-		St_InsertMode = {
-			bg = "purple",
-			fg = "black",
-		},
-		St_VisualMode = {
-			bg = "teal",
-			fg = "black",
-		},
-		St_NormalMode = {
-			bg = "statusline_bg",
-			fg = "white",
-		},
-		St_TerminalMode = {
-			bg = "purple",
-			fg = "black",
-		},
-		St_NTerminalMode = {
-			bg = "statusline_bg",
-			fg = "white",
-		},
-		St_ReplaceMode = {
+    St_InsertMode = {
+      bg = "purple",
+      fg = "black",
+    },
+    St_VisualMode = {
+      bg = "teal",
+      fg = "black",
+    },
+    St_NormalMode = {
+      bg = "statusline_bg",
+      fg = "white",
+    },
+    St_TerminalMode = {
+      bg = "purple",
+      fg = "black",
+    },
+    St_NTerminalMode = {
+      bg = "statusline_bg",
+      fg = "white",
+    },
+    St_ReplaceMode = {
       bg = "orange",
       fg = "black",
     },
-	},
+    St_NormalmodeText = {
+      bg = "statusline_bg",
+      fg = "white",
+    },
+    St_NormalModeSep = {
+      bg = "statusline_bg",
+      fg = "statusline_bg",
+    },
+  },
 
-	hl_add = {
-		-- NvimTreeOpenedFolderName = { fg = "green", bold = true },
-	},
+  hl_add = {
+    -- NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  },
 }
 
 M.plugins = "custom.plugins"

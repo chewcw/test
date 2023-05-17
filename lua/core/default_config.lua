@@ -10,8 +10,8 @@ M.ui = {
   hl_add = {},
   hl_override = {},
   changed_themes = {},
-  theme_toggle = { "onedark", "one_light" },
-  theme = "onedark",           -- default theme
+  theme_toggle = { "radium", "one_light" },
+  theme = "radium",           -- default theme
   transparency = false,
   lsp_semantic_tokens = false, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
@@ -22,16 +22,16 @@ M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "default",            -- default/flat_light/flat_dark/atom/atom_colored
-    border_color = "grey_fg",     -- only applicable for "default" style, use color names from base30 variables
+    style = "atom",             -- default/flat_light/flat_dark/atom/atom_colored
+    border_color = "grey_fg",   -- only applicable for "default" style, use color names from base30 variables
     selected_item_bg = "colored", -- colored / simple
   },
 
-  telescope = { style = "borderless" }, -- borderless / bordered
+  telescope = { style = "bordered" }, -- borderless / bordered
 
   ------------------------------- nvchad_ui modules -----------------------------
   statusline = {
-    theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
     separator_style = "round",
@@ -40,9 +40,9 @@ M.ui = {
         fileInfo = function()
           return "%#St_file_info#" .. "   " .. vim.fn.expand("%:p") .. "  "
         end,
-        gitchanges = function()
-          return ""
-        end,
+        -- gitchanges = function()
+        --   return ""
+        -- end,
         cwd = function()
           return ""
         end,

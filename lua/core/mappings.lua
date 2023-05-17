@@ -495,6 +495,7 @@ M.codeium = {
   },
 }
 
+-- these are mappings and configuration for vim-visual-multi
 M.vm = {
   plugin = true,
 
@@ -502,10 +503,13 @@ M.vm = {
     vim.cmd("let g:VM_default_mappings = 0")
     vim.cmd("let g:VM_maps = {}")
     vim.cmd("let g:VM_mouse_mappings = 1")
-    vim.cmd('let g:VM_maps["Find Subword Under"] = "gb"')
+    vim.cmd('let g:VM_maps["Find Under"] = "gb"')
+    vim.cmd('let g:VM_maps["Find Subword Under"] = "gB"')
     vim.cmd('let g:VM_maps["Select Cursor Down"] = "<M-C-j>"')
     vim.cmd('let g:VM_maps["Select Cursor Up"] = "<M-C-k>"')
     vim.cmd('let g:VM_maps["Skip Region"] = "<M-C-x>"')
+    vim.cmd('let g:VM_set_statusline = 0')
+    vim.cmd('let g:VM_silent_exit = 1')
   end,
 }
 
