@@ -24,29 +24,44 @@ M.ui = {
       bg = "teal",
       fg = "black",
     },
+    St_VisualModeSep = {
+      fg = "teal",
+    },
     St_NormalMode = {
-      bg = "statusline_bg",
+      bg = "one_bg",
       fg = "white",
     },
-    St_TerminalMode = {
-      bg = "purple",
-      fg = "black",
-    },
-    St_NTerminalMode = {
-      bg = "statusline_bg",
+    St_NormalmodeText = {
       fg = "white",
+    },
+    St_NormalModeSep = {
+      fg = "one_bg",
     },
     St_ReplaceMode = {
       bg = "orange",
       fg = "black",
     },
-    St_NormalmodeText = {
-      bg = "statusline_bg",
+    St_TerminalMode = {
+      bg = "purple",
+      fg = "black",
+    },
+    St_TerminalModeSep = {
+      bg = "one_bg",
+      fg = "purple",
+    },
+    St_TerminalmodeText = {
+      fg = "purple",
+    },
+    St_NTerminalMode = {
+      bg = "one_bg",
       fg = "white",
     },
-    St_NormalModeSep = {
-      bg = "statusline_bg",
-      fg = "statusline_bg",
+    St_NTerminalModeSep = {
+      fg = "one_bg",
+    },
+    St_NTerminalmodeText = {
+      bg = "one_bg",
+      fg = "white",
     },
   },
 
