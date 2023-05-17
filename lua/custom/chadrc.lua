@@ -63,6 +63,10 @@ M.ui = {
       bg = "one_bg",
       fg = "white",
     },
+    St_file_info = {
+      fg = "grey_fg",
+      bold = true,
+    },
   },
 
   hl_add = {
