@@ -41,6 +41,7 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
             follow = true,
           })
         end)
+        return true
       end,
     })
   end
