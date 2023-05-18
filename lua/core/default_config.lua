@@ -43,9 +43,9 @@ M.ui = {
         -- gitchanges = function()
         --   return ""
         -- end,
-        cwd = function()
-          return ""
-        end,
+        -- cwd = function()
+        --   return ""
+        -- end,
       }
     end,
   },

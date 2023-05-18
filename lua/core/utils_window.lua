@@ -20,34 +20,6 @@ local function clear_prompt()
   end
 end
 
----Is the buffer named NvimTree_[0-9]+ a tree? filetype is "NvimTree" or not readable file.
----This is cheap, as the readable test should only ever be needed when resuming a vim session.
----@param bufnr number|nil may be 0 or nil for current
----@return boolean
-local function is_nvim_tree_buf(bufnr)
-  if bufnr == nil then
-    bufnr = 0
-  end
-  if vim.fn.bufexists(bufnr) then
-    local bufname = vim.api.nvim_buf_get_name(bufnr)
-    if vim.fn.fnamemodify(bufname, ":t"):match("^NvimTree_[0-9]+$") then
-      if vim.bo[bufnr].filetype == "NvimTree" then
-        return true
-      elseif vim.fn.filereadable(bufname) == 0 then
-        return true
-      end
-    end
-  end
-  return false
-end
-local function get_user_input_char()
-  local c = vim.fn.getchar()
-  while type(c) ~= "number" do
-    c = vim.fn.getchar()
-  end
-  return vim.fn.nr2char(c)
-end
-
 local function usable_win_ids()
   local tabpage = vim.api.nvim_get_current_tabpage()
   local win_ids = vim.api.nvim_tabpage_list_wins(tabpage)
