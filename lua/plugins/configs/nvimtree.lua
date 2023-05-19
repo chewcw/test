@@ -14,8 +14,9 @@ local options = {
 		enable = true,
 		update_root = false,
 	},
+  respect_buf_cwd = false,
 	view = {
-		adaptive_size = false,
+		adaptive_size = true,
 		side = "left",
 		width = 30,
 		preserve_window_proportions = true,
@@ -31,6 +32,11 @@ local options = {
 		open_file = {
 			resize_window = true,
 		},
+    change_dir = {
+      enable = true,
+      global = false,
+      restrict_above_cwd = false,
+    },
 	},
 	renderer = {
 		root_folder_label = false,

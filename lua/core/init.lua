@@ -51,7 +51,7 @@ opt.updatetime = 250
 -- opt.whichwrap:append("<>[]hl")
 
 -- https://stackoverflow.com/questions/2288756/how-to-set-working-current-directory-in-vim
-opt.autochdir = true
+opt.autochdir = false
 
 -- misc
 opt.scrolloff = 5
