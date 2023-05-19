@@ -235,7 +235,7 @@ local default_plugins = {
   },
 
   {
-    "tpope/vim-commentary",
+    "tomtom/tcomment_vim",
     event = "BufEnter",
   },
 
