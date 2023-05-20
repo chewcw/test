@@ -109,8 +109,7 @@ local function pick_win_id()
     win_map[char] = id
 
     vim.api.nvim_win_set_option(id, "statusline", "%=" .. char .. "%=")
-    -- TODO: chewcw - how to set color
-    vim.api.nvim_win_set_option(id, "winhl", "StatusLine:Green,StatusLineNC:Green")
+    vim.api.nvim_win_set_option(id, "winhl", "StatusLine:Italic,StatusLineNC:Italic")
 
     i = i + 1
     if i > #window_picker.chars then
@@ -151,13 +150,6 @@ local function pick_win_id()
 end
 
 local function get_target_winid()
-  -- TODO: chewcw - if only one window no need to be picked
-  -- first available window
-  -- if not vim.tbl_contains(vim.api.nvim_tabpage_list_wins(0), target_winid) then
-  --   target_winid = first_win_id()
-  --   return target_winid
-  -- end
-
   -- pick a window
   target_winid = pick_win_id()
 
