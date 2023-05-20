@@ -315,7 +315,7 @@ local default_plugins = {
 
   {
     "mg979/vim-visual-multi",
-    keys = { "<C-A-j>", "<C-A-k>", "<C-A-l>", "<C-A-h>"   },
+    keys = { "<C-A-j>", "<C-A-k>", "<C-A-l>", "<C-A-h>", "gb", "gB" },
     init = function()
       require("core.mappings").vm.init()
     end,
