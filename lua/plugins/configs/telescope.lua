@@ -27,6 +27,7 @@ local ts_select_dir_for_grep_or_find_files = function(grep)
       files = false,
       depth = true,
       hidden = false,
+      cwd = vim.fn.getcwd(),
       attach_mappings = function(_)
         require("telescope.actions").select_default:replace(function()
           local entry_path = action_state.get_selected_entry().Path

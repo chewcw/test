@@ -236,12 +236,12 @@ local default_plugins = {
 
   {
     "tomtom/tcomment_vim",
-    event = "BufEnter",
+    keys = { "gc", "gcc" },
   },
 
   {
     "easymotion/vim-easymotion",
-    event = "BufEnter",
+    keys = { "<leader>", "s" },
     init = function()
       require("core.utils").load_mappings("easymotion")
     end,
@@ -309,22 +309,27 @@ local default_plugins = {
 
   {
     "windwp/nvim-autopairs",
-    event = "BufEnter",
+    event = "InsertEnter",
     config = true,
   },
 
   {
     "mg979/vim-visual-multi",
-    event = "BufEnter",
+    keys = { "<C-A-j>", "<C-A-k>", "<C-A-l>", "<C-A-h>"   },
     init = function()
       require("core.mappings").vm.init()
     end,
   },
 
+  {
+    "michaeljsmith/vim-indent-object",
+    keys = { "v" },
+  },
+
   -- Only load whichkey after all the gui
   {
     "folke/which-key.nvim",
-    keys = { "<leader>", '"', "'", "`", "c", "v" },
+    keys = { "<leader>", '"', "'", "`", "c", "v", "g" },
     init = function()
       require("core.utils").load_mappings("whichkey")
     end,
