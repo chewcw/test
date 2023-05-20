@@ -324,19 +324,19 @@ M.telescope = {
     -- lsp
     ["gi"] = { "<cmd> Telescope lsp_implementations show_line=false <CR>", "lsp implementation" },
     ["gI"] = {
-      "<cmd> Telescope lsp_implementations show_line=false jump_type=vsplit <CR>",
+      "<cmd> Telescope lsp_implementations show_line=false jump_type=never <CR>",
       "lsp implementation in vsplit",
     },
     ["gr"] = { "<cmd> Telescope lsp_references show_line=false <CR>", "lsp references" },
-    ["gR"] = { "<cmd> Telescope lsp_references show_line=false jump_type=vsplit <CR>", "lsp references in vsplit" },
+    ["gR"] = { "<cmd> Telescope lsp_references show_line=false jump_type=never <CR>", "lsp references in vsplit" },
     ["gd"] = { "<cmd> Telescope lsp_definitions show_line=false <CR>", "lsp definitions" },
     ["gD"] = {
-      "<cmd> Telescope lsp_definitions show_line=false jump_type=vsplit <CR>",
+      "<cmd> Telescope lsp_definitions show_line=false jump_type=never <CR>",
       "lsp definitions in vsplit",
     },
     ["gt"] = { "<cmd> Telescope lsp_type_definitions show_line=false <CR>", "lsp type definitions" },
     ["gT"] = {
-      "<cmd> Telescope lsp_type_definitions show_line=false jump_type=vsplit <CR>",
+      "<cmd> Telescope lsp_type_definitions show_line=false jump_type=never <CR>",
       "lsp type definitions in vsplit",
     },
     ["gs"] = { "<cmd> Telescope lsp_document_symbols symbol_width=60 <CR>", "lsp document symbols" },
