@@ -231,7 +231,7 @@ local default_plugins = {
 
   {
     "tpope/vim-surround",
-    event = "BufEnter",
+    keys = { "v" }
   },
 
   {
@@ -241,7 +241,7 @@ local default_plugins = {
 
   {
     "easymotion/vim-easymotion",
-    keys = { "<leader>", "s" },
+    keys = { "<leader>" },
     init = function()
       require("core.utils").load_mappings("easymotion")
     end,

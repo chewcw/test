@@ -20,6 +20,12 @@ M.ui = {
       bg = "purple",
       fg = "black",
     },
+    St_InsertmodeText = {
+      fg = "purple",
+    },
+    St_InsertModeSep = {
+      fg = "purple",
+    },
     St_VisualMode = {
       bg = "teal",
       fg = "black",
