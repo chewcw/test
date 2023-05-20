@@ -4,13 +4,13 @@
 
 local M = {}
 
-local target_winid = 0
+local target_winid = nil
 local tabpages = {}
 local window_picker = {
   chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
   exclude = {
     filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-    buftype = { "nofile", "terminal", "help" },
+    buftype = { "nofile", "terminal", "help", "TelescopePrompt", "TelescopeResults", "prompt" },
   },
 }
 
@@ -24,7 +24,7 @@ local function usable_win_ids()
   local tabpage = vim.api.nvim_get_current_tabpage()
   local win_ids = vim.api.nvim_tabpage_list_wins(tabpage)
 
-  return vim.tbl_filter(function(id)
+  local filter = vim.tbl_filter(function(id)
     local bufid = vim.api.nvim_win_get_buf(id)
     for option, v in pairs(window_picker.exclude) do
       local ok, option_value = pcall(vim.api.nvim_buf_get_option, bufid, option)
@@ -36,17 +36,16 @@ local function usable_win_ids()
     local win_config = vim.api.nvim_win_get_config(id)
     return id ~= win_config.focusable and not win_config.external
   end, win_ids)
+
+  return filter
 end
 
----Find the first window in the tab that is not NvimTree.
----@return integer -1 if none available
-local function first_win_id()
-  local selectable = usable_win_ids()
-  if #selectable > 0 then
-    return selectable[1]
-  else
-    return -1
+local function get_user_input_char()
+  local c = vim.fn.getchar()
+  while type(c) ~= "number" do
+    c = vim.fn.getchar()
   end
+  return vim.fn.nr2char(c)
 end
 
 ---Get user to pick a window in the tab that is not NvimTree.
@@ -229,7 +228,7 @@ M.open = function(filename, line_number, column_number)
   set_current_win_no_autocmd(target_winid, { "BufEnter" })
 
   pcall(vim.cmd, cmd)
-  pcall(vim.api.nvim_win_set_cursor, target_winid, {line_number, column_number})
+  pcall(vim.api.nvim_win_set_cursor, target_winid, { line_number, column_number })
   set_target_win()
 end
 
