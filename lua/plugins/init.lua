@@ -236,7 +236,7 @@ local default_plugins = {
 
   {
     "tomtom/tcomment_vim",
-    keys = { "gc", "gcc" },
+    event = { "BufEnter "},
   },
 
   {

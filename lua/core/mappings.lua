@@ -1,3 +1,5 @@
+local utils_comment = require("core.utils_comment")
+
 -- n, v, i, t = mode names
 
 local M = {}
@@ -40,7 +42,6 @@ M.general = {
     ["<leader>bb"] = { "<cmd> enew <CR>", "new buffer" },
     ["<leader>b\\"] = { "<cmd> vnew <CR>", "new buffer" },
     ["<leader>b_"] = { "<cmd> new <CR>", "new buffer" },
-    ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
     -- marks
     ["<leader>m"] = { ':delmarks a-zA-Z0-9"^.[] <CR>', "delete all marks" },
@@ -67,6 +68,14 @@ M.general = {
 
     -- wrap
     ["gw"] = { "<cmd> set wrap! <CR>", "toggle line wrapping" },
+
+    -- insert new line above
+    ["<A-CR>"] = { "O<Esc>" },
+
+    -- write comment
+    ["<leader>ch"] = { utils_comment.insert_comment_with_trails, "write comment with trails" },
+    ["<leader>cs"] = { utils_comment.insert_comment_with_solid_line, "write comment with solid line" },
+    ["<leader>cH"] = { utils_comment.insert_comment_with_header, "write comment with header" },
   },
 
   v = {
@@ -266,17 +275,6 @@ M.lspconfig = {
   },
 }
 
-local require_nvim_tree = function(api, desc)
-  return {
-    function()
-      vim.schedule(function()
-        api()
-      end)
-    end,
-    desc,
-  }
-end
--- require_nvim_tree
 M.nvimtree = {
   plugin = true,
 
@@ -508,8 +506,8 @@ M.vm = {
     vim.cmd('let g:VM_maps["Select Cursor Down"] = "<M-C-j>"')
     vim.cmd('let g:VM_maps["Select Cursor Up"] = "<M-C-k>"')
     vim.cmd('let g:VM_maps["Skip Region"] = "<M-C-x>"')
-    vim.cmd('let g:VM_set_statusline = 0')
-    vim.cmd('let g:VM_silent_exit = 1')
+    vim.cmd("let g:VM_set_statusline = 0")
+    vim.cmd("let g:VM_silent_exit = 1")
   end,
 }
 
